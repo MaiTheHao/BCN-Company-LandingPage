@@ -1,0 +1,30 @@
+@use '@styleVars' as v;
+
+.nav_item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	transition: opacity 0.3s ease;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.nav_item_icon {
+	aspect-ratio: 1;
+	height: 24px;
+}
+
+.nav_item_detail {
+	display: flex;
+	flex-direction: column;
+
+	&_title {
+		font-size: 16px;
+	}
+
+	&_subtitle {
+		font-size: 12px;
+	}
+}

@@ -1,0 +1,50 @@
+@use './vars' as v;
+
+.loadingContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 80vh;
+	text-align: center;
+	padding: 0 20px;
+}
+
+.spinner {
+	width: 80px;
+	height: 80px;
+	border: 6px solid rgba(v.$blue-dark, 0.2);
+	border-radius: 50%;
+	border-top-color: v.$blue-dark;
+	animation: spin 1s ease-in-out infinite;
+	margin-bottom: 24px;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.title {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.description {
+	font-size: 18px;
+	margin-bottom: 32px;
+	max-width: 500px;
+}
+
+@media screen and (max-width: 768px) {
+	.spinner {
+		width: 60px;
+		height: 60px;
+		border-width: 4px;
+	}
+
+	.description {
+		font-size: 16px;
+	}
+}

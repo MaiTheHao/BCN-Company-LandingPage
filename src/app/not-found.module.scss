@@ -1,0 +1,57 @@
+@use './vars' as v;
+@use 'sass:color';
+
+.notFoundContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 80vh;
+	text-align: center;
+	padding: 0 20px;
+}
+
+.errorCode {
+	font-size: 120px;
+	font-weight: 700;
+	color: v.$blue-dark;
+	margin: 0;
+	line-height: 1;
+}
+
+.title {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.description {
+	font-size: 18px;
+	margin-bottom: 32px;
+	max-width: 500px;
+}
+
+.homeButton {
+	display: inline-block;
+	background-color: v.$orange;
+	color: v.$white;
+	padding: 12px 24px;
+	border-radius: 4px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: background-color 0.3s ease;
+
+	&:hover {
+		background-color: color.adjust(v.$orange, $lightness: -10%);
+		text-decoration: none;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.errorCode {
+		font-size: 80px;
+	}
+
+	.description {
+		font-size: 16px;
+	}
+}

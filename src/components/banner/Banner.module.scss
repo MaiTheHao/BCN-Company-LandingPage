@@ -1,0 +1,123 @@
+@use '@styleVars' as v;
+
+// Kích thước và khoảng cách của banner
+$desktop-banner-width: 300px;
+$desktop-banner-height: 400px;
+$tablet-banner-width: 750px;
+$tablet-banner-height: 400px;
+$small-banner-width: 250px;
+$small-banner-height: 333px;
+$background-offset-x: -24px;
+$background-offset-y: -24px;
+$info-offset-x: -16px;
+$info-offset-y: 16px;
+
+/* Container chính */
+.container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+}
+
+/* Khối banner chứa hình ảnh và các phần tử overlay */
+.block {
+	position: relative;
+	width: $desktop-banner-width;
+	height: $desktop-banner-height;
+	background-color: transparent;
+
+	/* Container hình ảnh chính */
+	.main {
+		position: relative;
+		width: $desktop-banner-width;
+		height: $desktop-banner-height;
+		background-color: transparent;
+	}
+
+	/* Phần tử nền với khoảng cách */
+	.sub {
+		position: absolute;
+		top: $background-offset-y;
+		left: $background-offset-x;
+		width: $desktop-banner-width;
+		height: $desktop-banner-height;
+	}
+
+	/* Container overlay văn bản */
+	.info {
+		position: absolute;
+		bottom: calc(-1 * $info-offset-y);
+		left: $info-offset-x;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: max-content;
+		padding: 8px 16px;
+		background-color: v.$orange;
+
+		&_title {
+			font-size: 24px;
+		}
+
+		&_description {
+			font-size: 16px;
+		}
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.block {
+		aspect-ratio: $tablet-banner-width / $tablet-banner-height;
+		width: 100%;
+		height: auto;
+
+		.main {
+			aspect-ratio: $tablet-banner-width / $tablet-banner-height;
+			width: 100%;
+			height: auto;
+		}
+
+		.sub {
+			aspect-ratio: $tablet-banner-width / $tablet-banner-height;
+			top: $background-offset-y;
+			left: $background-offset-x;
+			width: 100%;
+			height: auto;
+		}
+
+		.info {
+			bottom: calc(-1 * $info-offset-y);
+			left: $info-offset-x;
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.block {
+		aspect-ratio: calc($small-banner-width / $small-banner-height);
+		width: 100%;
+		height: auto;
+		max-width: $small-banner-width;
+
+		.main {
+			aspect-ratio: calc($small-banner-width / $small-banner-height);
+			width: 100%;
+			height: auto;
+		}
+
+		.sub {
+			aspect-ratio: calc($small-banner-width / $small-banner-height);
+			top: calc($background-offset-y / 1.5);
+			left: calc($background-offset-x / 1.5);
+			width: 100%;
+			height: auto;
+		}
+
+		.info {
+			bottom: calc(-1 * ($info-offset-y / 2));
+			left: calc($info-offset-x / 2);
+		}
+	}
+}

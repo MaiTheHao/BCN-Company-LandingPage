@@ -1,0 +1,35 @@
+@use '@styleVars' as v;
+
+* {
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 16px;
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+	background-color: white;
+	&::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: v.$gray-xlight;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: v.$gray-light;
+		border-radius: 4px;
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background-color: v.$gray-medium;
+	}
+}
+
+body {
+}

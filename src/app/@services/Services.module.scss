@@ -1,0 +1,159 @@
+@use '@styleVars' as v;
+@use 'sass:color';
+
+.container {
+	background-color: v.$gray-xlight;
+}
+
+.block {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+
+.top {
+	position: relative;
+	display: flex;
+	gap: 16px;
+	.title {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		flex: 1;
+		h1 {
+			font-size: 24px;
+		}
+	}
+
+	.description {
+		flex: 1;
+		padding: 24px 32px;
+		background-color: v.$blue-dark;
+		font-size: 16px;
+		strong {
+			text-decoration: underline;
+			text-decoration-thickness: 1px;
+		}
+	}
+}
+
+.list {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	overflow-x: auto;
+	gap: 16px;
+	padding-bottom: 16px;
+
+	&::-webkit-scrollbar {
+		height: 8px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: v.$gray-xlight;
+		border-radius: 8px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: color.mix(v.$orange, v.$blue-dark, 80%);
+		border-radius: 8px;
+		transition: background-color 0.3s;
+
+		&:hover {
+			background-color: v.$orange;
+		}
+	}
+
+	&_item {
+		aspect-ratio: 1/1.25;
+		position: relative;
+		min-width: 300px;
+		height: auto;
+		border-radius: 8px;
+		overflow: hidden;
+		transition: all 0.3s ease;
+
+		&_detail {
+			display: flex;
+			flex-direction: column;
+
+			img {
+				object-fit: cover;
+				transition: transform 0.3s ease;
+			}
+
+			&_overlay {
+				position: absolute;
+				inset: 0 0 0 0;
+				background-color: rgba(v.$blue-dark, 0.7);
+				transition: opacity 0.3s ease;
+			}
+
+			&_description {
+				position: absolute;
+				inset: 0 0 0 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 24px;
+				padding: 16px;
+				transition: all 0.3s ease;
+
+				h3 {
+					font-size: 20px;
+					text-align: center;
+					transition: transform 0.3s ease;
+				}
+
+				p {
+					font-size: 16px;
+					text-align: center;
+					max-height: 0;
+					opacity: 0;
+					overflow: hidden;
+					transition: all 0.3s ease;
+					margin: 0;
+				}
+			}
+		}
+
+		&:hover {
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+			.list_item_detail {
+				img {
+					transform: scale(1.05);
+				}
+
+				&_overlay {
+					background-color: rgba(v.$blue-dark, 0.85);
+				}
+
+				&_description {
+					h3 {
+						transform: translateY(-10px);
+					}
+
+					p {
+						max-height: 200px;
+						opacity: 1;
+						margin-top: -10px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.top {
+		flex-direction: column;
+		gap: 16px;
+	}
+	.list {
+		&_item {
+			min-width: 300px;
+		}
+	}
+}

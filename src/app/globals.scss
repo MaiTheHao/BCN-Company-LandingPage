@@ -1,0 +1,118 @@
+@use './vars' as v;
+
+// ROOT CONTAINER
+.root-container {
+	position: relative;
+	width: 100vw;
+	min-width: 345px;
+	padding: 0 24px;
+}
+
+.root-additional-class {
+	position: absolute;
+	inset: 0 0 0 0;
+}
+
+.root-block {
+	position: relative;
+	width: 100%;
+	height: max-content;
+	max-width: 1200px;
+	padding: 80px 0;
+	margin: 0 auto;
+}
+
+// TYPOGRAPHY
+.uppercase {
+	text-transform: uppercase;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
+.font-thin {
+	font-weight: 200;
+}
+
+.font-regular {
+	font-weight: 400;
+}
+
+.font-semibold {
+	font-weight: 600;
+}
+.font-bold {
+	font-weight: 700;
+}
+
+.root-block-subtitle {
+	font-size: 16px;
+	color: v.$orange;
+	font-weight: 600;
+	@extend .capitalize;
+}
+
+.root-block-title {
+	font-size: 24px;
+	font-weight: 700;
+	@extend .capitalize;
+
+	&--blue {
+		color: v.$blue-dark;
+	}
+
+	&--white {
+		color: v.$white;
+	}
+}
+
+// COLORS
+.font-white {
+	color: v.$white;
+}
+
+.font-orange {
+	color: v.$orange;
+}
+
+.font-blue-dark {
+	color: v.$blue-dark;
+}
+
+.font-gray-xlight {
+	color: v.$gray-xlight;
+}
+
+.font-gray-light {
+	color: v.$gray-light;
+}
+
+.font-gray-medium {
+	color: v.$gray-medium;
+}
+
+.font-gray-dark {
+	color: v.$gray-dark;
+}
+
+// RESPONSIVE STYLES
+@media screen and (max-width: 1000px) {
+	.root-container {
+		padding: 0 24px;
+	}
+
+	.root-block {
+		padding: 40px 0;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.root-container {
+		padding: 0 16px;
+	}
+
+	.root-block-title {
+		font-size: 20px;
+	}
+}

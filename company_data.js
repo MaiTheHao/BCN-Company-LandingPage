@@ -1,58 +1,77 @@
-export const companyInfo = {
+export const COMPANY_INFO = {
 	name: 'Công Ty TNHH Cơ Khí Vạn Năng',
 	taxId: '3703143102',
-	director: 'Mai Thanh Tiền',
-	contact: {
-		phone: '+84 944 432 430 • 819 690 938',
-		facebook: 'https://www.facebook.com/profile.php?id=61572695349782',
-		email: 'cokhivannang@gmail.com',
-		address: '522, Tổ 1, Kp 8, Uyên Hưng, Tp. Tân Uyên',
-		googleMap: 'https://maps.app.goo.gl/WywqoKf8pGVkJzuCA',
-		location: 'Bình Dương',
-		zalo: 'https://zalo.me/2444516135385989317',
-	},
-	icon: 'icon.png',
 	slogan: 'Giải pháp gia công cơ khí & chế tạo máy',
 	description:
-		'Chúng tôi chuyên cung cấp dịch vụ tiện, hàn, phay, bào, CNC với độ chính xác cao. Cam kết chất lượng, đáp ứng mọi yêu cầu kỹ thuật, giúp tối ưu chi phí và nâng cao hiệu suất sản xuất.',
-	services: [
-		{
-			name: 'Tiện',
-			title: 'Tiện chính xác',
-			description:
-				'Đảm bảo độ chính xác cao với tay nghề giàu kinh nghiệm, phù hợp cho các chi tiết đòi hỏi độ tin cậy và độ bền.',
-			pic: 'Service1',
+		'Chúng tôi cung cấp dịch vụ chất lượng, chính xác, nhanh chóng với chi phí tối ưu và chuyên nghiệp. Với đội ngũ kỹ sư giàu kinh nghiệm cùng trang thiết bị hiện đại, chúng tôi cam kết mang đến giải pháp cơ khí tối ưu cho từng nhu cầu cụ thể. Hãy để chúng tôi giúp bạn nâng cao hiệu suất, tối ưu quy trình và giảm chi phí!',
+	icon: 'icon.png',
+	location: {
+		address: {
+			street: '522',
+			area: 'Tổ 1, Khu Phố 8',
+			ward: 'Uyên Hưng',
+			city: 'Tân Uyên',
+			province: 'Bình Dương',
+			country: 'Việt Nam',
 		},
-		{
-			name: 'Hàn',
-			title: 'Hàn chuyên nghiệp',
-			description:
-				'Áp dụng nhiều phương pháp hàn truyền thống đến các phương pháp hiện đại, đáp ứng mọi yêu cầu kỹ thuật và độ bền sản phẩm.',
-			pic: 'Service2',
-		},
-		{
-			name: 'Phay',
-			title: 'Phay đa trục',
-			description:
-				'Xử lý linh hoạt các bề mặt phức tạp với công nghệ phay đa trục, đáp ứng các yêu cầu kỉ thuật phức tạp.',
-			pic: 'Service3',
-		},
-		{
-			name: 'CNC',
-			title: 'CNC & Thiết kế 3D',
-			description:
-				'Cung cấp giải pháp cắt dây CNC chính xác cùng dịch vụ hỗ trợ thiết kế 3D, biến ý tưởng thành sản phẩm hoàn thiện.',
-			pic: 'Service4',
-		},
-	],
+		googleMap: 'https://maps.app.goo.gl/WywqoKf8pGVkJzuCA',
+		region: 'Bình Dương',
+	},
+	workingTime: {
+		weekdays: 'Thứ 2 - Thứ 7',
+		hours: '7:30 AM - 4:30 PM',
+	},
 };
 
-export const directorBio = {
-	name: companyInfo.director,
+export const COMPANY_CONTACT = {
+	phone: '+84 944 432 430',
+	email: 'cokhivannang@gmail.com',
+	facebook: 'https://www.facebook.com/profile.php?id=61572695349782',
+	zalo: 'https://zalo.me/2444516135385989317',
+	googleMap: 'https://maps.app.goo.gl/WywqoKf8pGVkJzuCA',
+};
+
+export const COMPANY_SERVICES = [
+	{
+		id: 'service1',
+		name: 'Tiện',
+		title: 'Tiện chính xác',
+		description:
+			'Đảm bảo độ chính xác cao với tay nghề giàu kinh nghiệm, phù hợp cho các chi tiết đòi hỏi độ tin cậy và độ bền.',
+		image: 'Service1',
+	},
+	{
+		id: 'service2',
+		name: 'Hàn',
+		title: 'Hàn chuyên nghiệp',
+		description:
+			'Áp dụng nhiều phương pháp hàn truyền thống đến các phương pháp hiện đại, đáp ứng mọi yêu cầu kỹ thuật và độ bền sản phẩm.',
+		image: 'Service2',
+	},
+	{
+		id: 'service3',
+		name: 'Phay',
+		title: 'Phay đa trục',
+		description:
+			'Xử lý linh hoạt các bề mặt phức tạp với công nghệ phay đa trục, đáp ứng các yêu cầu kỉ thuật phức tạp.',
+		image: 'Service3',
+	},
+	{
+		id: 'service4',
+		name: 'CNC',
+		title: 'CNC & Thiết kế 3D',
+		description:
+			'Cung cấp giải pháp cắt dây CNC chính xác cùng dịch vụ hỗ trợ thiết kế 3D, biến ý tưởng thành sản phẩm hoàn thiện.',
+		image: 'Service4',
+	},
+];
+
+export const COMPANY_DIRECTOR = {
+	name: 'Mai Thanh Tiền',
 	title: 'Giám Đốc',
-	bio: 'Mai Thanh Tiền là giám đốc của Công Ty TNHH Cơ Khí Vạn Năng, với nhiều năm kinh nghiệm trong ngành cơ khí và chế tạo máy. Ông luôn cam kết mang đến những giải pháp tối ưu và chất lượng nhất cho khách hàng.',
 	avatar: 'DirectorAvatar',
-	content: [
+	bio: 'Mai Thanh Tiền là giám đốc của Công Ty TNHH Cơ Khí Vạn Năng, với nhiều năm kinh nghiệm trong ngành cơ khí và chế tạo máy. Ông luôn cam kết mang đến những giải pháp tối ưu và chất lượng nhất cho khách hàng.',
+	achievements: [
 		{
 			title: 'Kinh Nghiệm 25 Năm Trong Ngành Cơ Khí',
 			description:
@@ -78,94 +97,10 @@ export const directorBio = {
 			description:
 				'Giám đốc hiện đang là người lãnh đạo và cũng là người sáng lập Công ty (trước đây là Công ty TNHH Cơ khí Thanh Tiền), đóng góp không nhỏ vào sự phát triển mạnh mẽ và uy tín của công ty trên thị trường.',
 		},
-	],
-};
-
-export const whyUs = [
-	{
-		title: 'Đội Ngũ Chuyên Môn Cao',
-		description:
-			'Đội ngũ công nhân lành nghề, hơn 10 năm kinh nghiệm, cam kết chất lượng, tiến độ và giá cả hợp lý.',
-	},
-	{
-		title: 'Trang Thiết Bị Hiện Đại',
-		description:
-			'Hệ thống máy móc tiên tiến, đáp ứng nhu cầu đa dạng, đảm bảo độ chính xác cao trong từng sản phẩm.',
-	},
-	{
-		title: 'Dịch Vụ Đa Dạng',
-		description:
-			'Không chỉ tập trung vào gia công cơ khí, chúng tôi còn cung cấp gia công cơ khí, thiết bị, phụ tùng máy công nghiệp, mô tơ, máy bơm, máy biến tần, tủ điện và linh kiện điện tử, phục vụ đa dạng nhu cầu khách hàng.',
-	},
-	{
-		title: 'Uy Tín & Trách Nhiệm',
-		description:
-			'Dưới sự điều hành của ông Mai Thanh Tiền, chúng tôi cam kết cung cấp giải pháp cơ khí toàn diện, từ thiết kế đến thi công, phục vụ khách hàng trong và ngoài Bình Dương.',
-	},
-];
-
-export const headerData = {
-	logo: {
-		src: 'LOGO-STYLE1',
-		width: 496,
-		height: 285,
-	},
-	contacts: [
 		{
-			icon: faLocationDot,
-			title: companyInfo.contact.location,
-			details: companyInfo.contact.address,
-			href: companyInfo.contact.googleMap,
-		},
-		{
-			icon: faFacebook,
-			title: 'Facebook',
-			details: `Fanpage của chúng tôi`,
-			href: `tel:${companyInfo.contact.phone}`,
-		},
-		{
-			Icon: ZaloIconOrange,
-			title: 'Zalo OA',
-			details: 'Liên hệ qua Zalo OA',
-			href: companyInfo.contact.zalo,
+			title: 'Đại Diện Nhiều Doanh Nghiệp',
+			description:
+				'Ngoài Công Ty TNHH Cơ Khí Vạn Năng, ông Mai Thanh Tiền còn là người đại diện pháp luật của Công Ty TNHH Cơ Khí Thanh Tiền, hoạt động trong lĩnh vực bán buôn máy móc, thiết bị và phụ tùng máy khác.',
 		},
 	],
-	slogan: companyInfo.slogan,
-};
-
-export const footerData = {
-	introduce: {
-		logo: 'LOGO-STYLE3',
-		content: companyInfo.description,
-		mobileContent: companyInfo.slogan,
-	},
-	contact: {
-		title: 'Liên Hệ Với Chúng Tôi',
-		items: [
-			{
-				Icon: ZaloIconOrange,
-				text: 'CTY TNHH cơ khí Vạn Năng',
-				href: companyInfo.contact.zalo,
-			},
-			{
-				icon: faLocationDot,
-				text: companyInfo.contact.address,
-				href: companyInfo.contact.googleMap,
-			},
-			{
-				icon: faPhone,
-				text: companyInfo.contact.phone,
-				href: `tel:${companyInfo.contact.phone}`,
-			},
-		],
-	},
-	form: {
-		title: 'Bạn Có Câu Hỏi ?',
-		subtitle: 'Liên hệ ngay với chúng tôi bằng Zalo để được tư vấn và hỗ trợ nhanh chóng nhất.',
-	},
-	map: {
-		title: 'Vị Trí Xưởng & Văn Phòng',
-		image: 'Map',
-	},
-	copyright: `© 2025 ${companyInfo.name}. MST: ${companyInfo.taxId}`,
 };
