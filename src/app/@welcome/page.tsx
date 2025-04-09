@@ -7,6 +7,33 @@ import Image from 'next/image';
 import CustomSubTitle from '@/components/custom_sub_title/CustomSubTitle';
 import CTA from '@/components/CTA/CTA';
 import { COMPANY_CONTACT, COMPANY_DIRECTOR, COMPANY_INFO } from '@data';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: `Trang chủ | ${COMPANY_INFO.name}`,
+	description: COMPANY_INFO.description,
+	keywords: [
+		'cơ khí vạn năng',
+		'dịch vụ cơ khí',
+		'gia công cơ khí',
+		'tiện',
+		'hàn',
+		'phay',
+		'bào',
+		'CNC',
+		'Bình Dương',
+		'chế tạo máy',
+		'giải pháp cơ khí',
+		'chi phí tối ưu',
+	],
+	openGraph: {
+		title: `Trang chủ | ${COMPANY_INFO.name}`,
+		description: COMPANY_INFO.description,
+		siteName: COMPANY_INFO.name,
+		locale: 'vi_VN',
+		type: 'website',
+	},
+};
 
 type Props = {};
 
