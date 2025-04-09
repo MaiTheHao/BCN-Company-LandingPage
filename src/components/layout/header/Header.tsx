@@ -78,6 +78,8 @@ function Header() {
 						{NAV_ITEMS.map((item, index) => (
 							<Link
 								href={item.href}
+								target='_blank'
+								rel='noopener noreferrer'
 								key={`menu-item-${index}`}
 								className={`${styles.menu_item} ${open_sans.className}`}
 							>
