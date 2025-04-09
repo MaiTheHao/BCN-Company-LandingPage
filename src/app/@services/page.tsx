@@ -4,6 +4,35 @@ import styles from './Services.module.scss';
 import { montserrat, open_sans } from '../fonts';
 import CustomSubTitle from '@/components/custom_sub_title/CustomSubTitle';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: 'Dịch vụ | Cơ khí Vạn Năng',
+	description:
+		'Dịch vụ gia công cơ khí chính xác: Tiện, Hàn, Phay, Bào, CNC. Chất lượng đảm bảo, uy tín, chuyên nghiệp với đội ngũ giàu kinh nghiệm.',
+	keywords: [
+		'dịch vụ cơ khí',
+		'gia công cơ khí',
+		'tiện chính xác',
+		'hàn chuyên nghiệp',
+		'phay đa trục',
+		'bán buôn thiết bị công nghiệp',
+		'tủ điện',
+		'phụ kiện điều khiển',
+		'cơ khí Bình Dương',
+		'gia công CNC',
+		'chất lượng cao',
+		'đội ngũ kinh nghiệm',
+	],
+	openGraph: {
+		title: 'Dịch vụ | Cơ khí Vạn Năng',
+		description:
+			'Dịch vụ gia công cơ khí chính xác: Tiện, Hàn, Phay, Bào, CNC. Chất lượng đảm bảo, uy tín với hơn 25 năm kinh nghiệm.',
+		siteName: 'Cơ khí Vạn Năng',
+		locale: 'vi_VN',
+		type: 'website',
+	},
+};
 
 type Props = {};
 

@@ -6,6 +6,31 @@ import { montserrat, open_sans } from '../fonts';
 import Image from 'next/image';
 import Link from 'next/link';
 import { COMPANY_CONTACT, COMPANY_INFO } from '@data';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: `Giới thiệu | ${COMPANY_INFO.name}`,
+	description: COMPANY_INFO.description,
+	keywords: [
+		'cơ khí vạn năng',
+		'dịch vụ cơ khí',
+		'gia công cơ khí',
+		'tiện',
+		'hàn',
+		'phay',
+		'bào',
+		'CNC',
+		'Bình Dương',
+		'chế tạo máy',
+	],
+	openGraph: {
+		title: `Giới thiệu | ${COMPANY_INFO.name}`,
+		description: COMPANY_INFO.description,
+		siteName: COMPANY_INFO.name,
+		locale: 'vi_VN',
+		type: 'website',
+	},
+};
 
 type Props = {};
 
