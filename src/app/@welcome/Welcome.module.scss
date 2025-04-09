@@ -77,9 +77,15 @@
 	.block {
 		.detail {
 			gap: 16px;
+
+			.title {
+				font-size: 20px;
+			}
+
 			ul {
 				display: block;
 			}
+
 			.actions {
 				width: 100%;
 				align-items: center;

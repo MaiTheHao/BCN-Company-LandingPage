@@ -69,18 +69,18 @@ $info-offset-y: 16px;
 
 @media screen and (max-width: 1000px) {
 	.block {
-		aspect-ratio: $tablet-banner-width / $tablet-banner-height;
+		aspect-ratio: calc($tablet-banner-width / $tablet-banner-height);
 		width: 100%;
 		height: auto;
 
 		.main {
-			aspect-ratio: $tablet-banner-width / $tablet-banner-height;
+			aspect-ratio: calc($tablet-banner-width / $tablet-banner-height);
 			width: 100%;
 			height: auto;
 		}
 
 		.sub {
-			aspect-ratio: $tablet-banner-width / $tablet-banner-height;
+			aspect-ratio: calc($tablet-banner-width / $tablet-banner-height);
 			top: $background-offset-y;
 			left: $background-offset-x;
 			width: 100%;

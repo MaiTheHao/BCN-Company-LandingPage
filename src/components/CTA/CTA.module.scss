@@ -9,7 +9,6 @@
 	gap: 16px;
 	padding: 8px 16px;
 	border-radius: 4px;
-	background-color: v.$orange;
 	overflow: hidden;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -57,4 +56,12 @@
 	.button:hover & {
 		transform: rotate(15deg) scale(1.1);
 	}
+}
+
+.button--orange {
+	background-color: v.$orange;
+}
+
+.button--blue {
+	background-color: v.$blue-dark;
 }

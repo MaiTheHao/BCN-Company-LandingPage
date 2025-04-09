@@ -1,0 +1,149 @@
+@use '@styleVars' as v;
+
+.search {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding: 8px 24px;
+	border: 1px solid v.$gray-medium;
+	border-radius: 4px;
+	margin-bottom: 20px;
+	background-color: v.$white;
+
+	&_input {
+		flex: 1;
+		font-size: 16px;
+		border: none;
+		outline: none;
+		color: v.$gray-dark;
+
+		&::placeholder {
+			color: v.$gray-light;
+		}
+	}
+
+	i {
+		aspect-ratio: 1;
+		position: relative;
+		width: 20px;
+		height: auto;
+		cursor: pointer;
+	}
+}
+
+.resutls {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.result_item {
+	padding: 16px;
+	border: 1px solid v.$gray-xlight;
+	border-radius: 4px;
+	background-color: v.$white;
+	transition: all 0.3s ease;
+
+	&:hover {
+		border-color: v.$gray-medium;
+		box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+		transform: translateY(-2px);
+		background-color: rgba(v.$blue-dark, 0.02);
+	}
+
+	h3 {
+		font-size: 18px;
+		font-weight: v.$font-semibold;
+		color: v.$blue-dark;
+		margin: 0 0 8px 0;
+	}
+
+	p {
+		font-size: 14px;
+		color: v.$gray-medium;
+		margin: 0;
+		text-align: justify;
+	}
+}
+
+.loading {
+	list-style: none;
+	padding: 16px;
+	border-radius: 4px;
+	background-color: v.$gray-xlight;
+	height: 80px;
+	margin-top: 16px;
+
+	&_pulse {
+		height: 100%;
+		background: linear-gradient(90deg, v.$gray-xlight, v.$gray-light, v.$gray-xlight);
+		background-size: 200% 100%;
+		animation: pulse 1.5s infinite;
+		border-radius: 4px;
+	}
+}
+
+@keyframes pulse {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.search {
+		padding: 8px 20px;
+	}
+
+	.result_item {
+		padding: 14px;
+
+		h3 {
+			font-size: 17px;
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.search {
+		padding: 6px 16px;
+
+		&_input {
+			font-size: 14px;
+		}
+
+		i {
+			width: 18px;
+		}
+	}
+
+	.resutls {
+		gap: 12px;
+	}
+
+	.result_item {
+		padding: 12px;
+
+		h3 {
+			font-size: 16px;
+			margin: 0 0 6px 0;
+		}
+
+		p {
+			font-size: 13px;
+		}
+	}
+
+	.loading {
+		padding: 12px;
+		height: 70px;
+	}
+}

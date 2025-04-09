@@ -1,4 +1,4 @@
-import BodyPageTemplate from '@/components/body__page_template/BodyPageTemplate';
+import BodyPageTemplate from '@/components/body_page_template/BodyPageTemplate';
 import React from 'react';
 import styles from './Welcome.module.scss';
 import Banner from '@/components/banner/Banner';

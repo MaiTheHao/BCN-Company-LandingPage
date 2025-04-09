@@ -150,6 +150,10 @@
 	.top {
 		flex-direction: column;
 		gap: 16px;
+
+		.title h1 {
+			font-size: 20px;
+		}
 	}
 	.list {
 		&_item {
