@@ -41,11 +41,12 @@ export const metadata: Metadata = {
 		icon: '/favicon.ico',
 		apple: '/apple-icon.png',
 	},
-	viewport: {
-		width: 'device-width',
-		initialScale: 1,
-	},
 	category: 'Cơ khí, Chế tạo máy',
+};
+
+export const viewport = {
+	width: 'device-width',
+	initialScale: 1,
 };
 
 function RootLayout({ children, introduce, welcome, services, whyus, contact, faqs }: RootLayoutProps) {

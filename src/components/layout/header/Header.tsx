@@ -5,6 +5,7 @@ import Image from 'next/image';
 import HeaderNavItem from '../header_nav_item/HeaderNavItem';
 import { open_sans } from '@/app/fonts';
 import { INavItem } from '@/interfaces/header';
+import Link from 'next/link';
 
 const COMPANY_LOCATION = COMPANY_INFO.location;
 const NAV_ITEMS: INavItem[] = [
@@ -75,10 +76,14 @@ function Header() {
 					<Image src={'svgs/icons/menu.svg'} alt='Menu' width={24} height={24} />
 					<div className={`${styles.menu}`}>
 						{NAV_ITEMS.map((item, index) => (
-							<div key={`menu-item-${index}`} className={`${styles.menu_item} ${open_sans.className}`}>
+							<Link
+								href={item.href}
+								key={`menu-item-${index}`}
+								className={`${styles.menu_item} ${open_sans.className}`}
+							>
 								<Image src={item.icon} alt={item.title} width={24} height={24} />
 								<span className='font-regular font-white'>{item.title}</span>
-							</div>
+							</Link>
 						))}
 					</div>
 				</div>
