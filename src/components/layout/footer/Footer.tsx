@@ -50,7 +50,7 @@ export default function Footer() {
 				{/* Phần bản đồ */}
 				<div className={`${styles.map}`}>
 					<Image
-						src={'/images/map.webp'}
+						src={'/svgs/map.svg'}
 						alt='Map'
 						width={1200}
 						height={308}
