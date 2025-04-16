@@ -71,7 +71,7 @@ const CTA_CONFIG = {
 const BANNER_CONFIG = {
 	src: '/images/welcome-1.webp',
 	alt: 'Welcome banner card',
-	title: `${COMPANY_DIRECTOR.achievements[0].title.split(' ')[1]}+`,
+	title: `25+`,
 	description: 'Năm Kinh Nghiệm',
 	classes: {
 		sub: styles.banner_sub,
