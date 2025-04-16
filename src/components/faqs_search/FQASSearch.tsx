@@ -6,7 +6,6 @@ import { montserrat, open_sans } from '@/app/fonts';
 import debounce from 'lodash.debounce';
 import { FAQ, SearchResult, SearchOptions } from '@/interfaces/faqs';
 
-// Separate component for loading state
 function ResultsLoading() {
 	return (
 		<li className={styles.loading}>
@@ -15,21 +14,42 @@ function ResultsLoading() {
 	);
 }
 
-// Separate component for the results to wrap with Suspense
-function SearchResults({ results }: { results: FAQ[] }) {
+function LoadMoreButton({ onClick, isLoading }: { onClick: () => void; isLoading: boolean }) {
 	return (
-		<ul className={styles.resutls}>
-			{results.map((item, index) => (
-				<li key={index} className={styles.result_item}>
-					<h3 className={`${montserrat.className} font-semibold`}>{item.title}</h3>
-					<p className={`${open_sans.className}`}>{item.description}</p>
-				</li>
-			))}
-		</ul>
+		<div className={styles.load_more_container}>
+			<button
+				className={`${styles.load_more_button} ${montserrat.className}`}
+				onClick={onClick}
+				disabled={isLoading}
+			>
+				{isLoading ? 'Đang tải...' : 'Tải thêm kết quả'}
+			</button>
+		</div>
 	);
 }
 
-// Data fetching function that returns a promise
+function SearchResults({ results, totalResultsCount }: { results: FAQ[]; totalResultsCount: number }) {
+	return (
+		<>
+			<div className={styles.results_wrapper}>
+				<ul className={styles.resutls}>
+					{results.map((item, index) => (
+						<li key={index} className={styles.result_item}>
+							<h3 className={`${montserrat.className} font-semibold`}>{item.title}</h3>
+							<p className={`${open_sans.className}`}>{item.description}</p>
+						</li>
+					))}
+				</ul>
+			</div>
+			{results.length > 0 && (
+				<p className={`${styles.results_count} ${montserrat.className} font-regular`}>
+					Hiển thị {results.length} / {totalResultsCount} kết quả
+				</p>
+			)}
+		</>
+	);
+}
+
 function fetchFAQData(): Promise<FAQ[]> {
 	return fetch('/data/faqs.json').then((response) => {
 		if (!response.ok) {
@@ -44,8 +64,11 @@ type Props = {};
 function FQASSearch({}: Props) {
 	const [query, setQuery] = useState('');
 	const [data, setData] = useState<FAQ[]>([]);
-	const [results, setResults] = useState<FAQ[]>([]);
+	const [filteredData, setFilteredData] = useState<FAQ[]>([]);
+	const [displayedResults, setDisplayedResults] = useState<FAQ[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const [loadingMore, setLoadingMore] = useState(false);
+	const [displayCount, setDisplayCount] = useState(6);
 
 	const searchOptions: SearchOptions = {
 		caseSensitive: false,
@@ -53,13 +76,13 @@ function FQASSearch({}: Props) {
 		maxResults: 6,
 	};
 
-	// Fetch data from public folder
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const faqData = await fetchFAQData();
 				setData(faqData);
-				setResults(faqData.slice(0, searchOptions.maxResults));
+				setFilteredData(faqData);
+				setDisplayedResults(faqData.slice(0, displayCount));
 				setIsLoading(false);
 			} catch (error) {
 				console.error('Error fetching FAQ data:', error);
@@ -68,32 +91,32 @@ function FQASSearch({}: Props) {
 		};
 
 		fetchData();
-	}, [searchOptions.maxResults]);
+	}, [displayCount]);
 
 	const debouncedSearch = useCallback(
 		debounce((searchQuery: string) => {
 			if (searchQuery.trim() === '') {
-				setResults(data.slice(0, searchOptions.maxResults));
+				setFilteredData(data);
+				setDisplayedResults(data.slice(0, displayCount));
 				return;
 			}
 
-			const filteredResults = data
-				.filter(
-					(item) =>
-						item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-						item.description.toLowerCase().includes(searchQuery.toLowerCase())
-				)
-				.slice(0, searchOptions.maxResults);
+			const filtered = data.filter(
+				(item) =>
+					item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+					item.description.toLowerCase().includes(searchQuery.toLowerCase())
+			);
 
 			const searchResult: SearchResult = {
-				results: filteredResults,
-				count: filteredResults.length,
+				results: filtered,
+				count: filtered.length,
 				query: searchQuery,
 			};
 
-			setResults(searchResult.results);
+			setFilteredData(filtered);
+			setDisplayedResults(filtered.slice(0, displayCount));
 		}, 300),
-		[data, searchOptions.maxResults]
+		[data, displayCount]
 	);
 
 	useEffect(() => {
@@ -104,9 +127,22 @@ function FQASSearch({}: Props) {
 		};
 	}, [query, debouncedSearch]);
 
+	useEffect(() => {
+		setDisplayedResults(filteredData.slice(0, displayCount));
+		setLoadingMore(false);
+	}, [filteredData, displayCount]);
+
 	const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setQuery(e.target.value);
+		setDisplayCount(searchOptions.maxResults ?? 6);
 	};
+
+	const loadMoreResults = () => {
+		setLoadingMore(true);
+		setDisplayCount((prev) => prev + (searchOptions.maxResults ?? 6));
+	};
+
+	const hasMoreResults = filteredData.length > displayedResults.length;
 
 	return (
 		<>
@@ -124,8 +160,14 @@ function FQASSearch({}: Props) {
 			</div>
 
 			<Suspense fallback={<ResultsLoading />}>
-				{isLoading ? <ResultsLoading /> : <SearchResults results={results} />}
+				{isLoading ? (
+					<ResultsLoading />
+				) : (
+					<SearchResults results={displayedResults} totalResultsCount={filteredData.length} />
+				)}
 			</Suspense>
+
+			{hasMoreResults && !isLoading && <LoadMoreButton onClick={loadMoreResults} isLoading={loadingMore} />}
 		</>
 	);
 }
