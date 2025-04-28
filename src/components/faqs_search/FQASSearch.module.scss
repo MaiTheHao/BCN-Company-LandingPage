@@ -5,7 +5,7 @@
 	display: flex;
 	align-items: center;
 	gap: 16px;
-	padding: 8px 24px;
+	padding: 12px 20px;
 	border: 1px solid v.$gray-medium;
 	border-radius: 4px;
 	margin-bottom: 20px;
@@ -378,10 +378,6 @@
 }
 
 @media screen and (max-width: 1000px) {
-	.search {
-		padding: 8px 20px;
-	}
-
 	.result_item {
 		padding: 14px;
 
@@ -397,18 +393,6 @@
 }
 
 @media screen and (max-width: 600px) {
-	.search {
-		padding: 6px 16px;
-
-		&_input {
-			font-size: 14px;
-		}
-
-		i {
-			width: 18px;
-		}
-	}
-
 	.resutls {
 		gap: 12px;
 	}
