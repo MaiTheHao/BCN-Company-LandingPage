@@ -15,7 +15,7 @@ type BannerProps = {
 /**
  * Thành phần Banner hiển thị một hình ảnh nền với tiêu đề và mô tả.
  *
- * @param {string} [src='/images/introduce-2.webp'] - Đường dẫn đến hình ảnh hiển thị trong banner.
+ * @param {string} [src='/pages/introduce/introduce-2.webp'] - Đường dẫn đến hình ảnh hiển thị trong banner.
  * @param {string} [alt='Banner image'] - Văn bản thay thế cho hình ảnh (alt text).
  * @param {string} [title='Banner Title'] - Tiêu đề hiển thị trên banner.
  * @param {string} [description='Banner description'] - Mô tả hiển thị trên banner.
@@ -25,7 +25,7 @@ type BannerProps = {
  * @returns {JSX.Element} Thành phần Banner.
  */
 function Banner({
-	src = '/images/introduce-2.webp',
+	src = '/pages/introduce/introduce-2.webp',
 	alt = 'Banner image',
 	title = 'Banner Title',
 	description = 'Banner description',

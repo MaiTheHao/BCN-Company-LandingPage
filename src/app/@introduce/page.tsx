@@ -70,7 +70,7 @@ const SOCIAL_MEDIA_LINKS = [
 ];
 
 const BANNER_CONFIG = {
-	src: '/images/introduce-2.webp',
+	src: '/pages/introduce/introduce-2.svg',
 	alt: 'Introduce banner card',
 	title: '100%',
 	description: 'Chất lượng & uy tín',

@@ -25,9 +25,6 @@ function WhyUs({}: Props) {
 			customAdditionalClassName={WHYUS_PAGE_CONFIG.classes.additional}
 			customBlockClassName={WHYUS_PAGE_CONFIG.classes.block}
 		>
-			<div className={styles.left}>
-				<Image src='/images/whyus-2.webp' alt='Tại sao lại lựa chọn chúng tôi ?' fill quality={100} />
-			</div>
 			<div className={styles.right}>
 				<div className={styles.content}>
 					<CustomSubTitle title='Lý Do Nên Chọn Chúng Tôi' />

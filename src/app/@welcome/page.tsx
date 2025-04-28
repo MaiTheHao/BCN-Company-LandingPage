@@ -69,7 +69,7 @@ const CTA_CONFIG = {
 };
 
 const BANNER_CONFIG = {
-	src: '/images/welcome-1.webp',
+	src: '/pages/welcome/welcome-2.svg',
 	alt: 'Welcome banner card',
 	title: `25+`,
 	description: 'Năm Kinh Nghiệm',

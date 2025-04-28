@@ -13,4 +13,5 @@ export interface SearchOptions {
 	caseSensitive?: boolean;
 	fuzzy?: boolean;
 	maxResults?: number;
+	threshold?: number;
 }
