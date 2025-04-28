@@ -21,6 +21,9 @@ interface UseFuzzySearchResult {
 	loadingMore: boolean;
 	hasMoreResults: boolean;
 	totalResultsCount: number;
+	selectedCategories: string[];
+	setSelectedCategories: (categories: string[]) => void;
+	allCategories: string[];
 }
 
 export function useFuzzySearch(data: FAQ[], options: UseFuzzySearchOptions = {}): UseFuzzySearchResult {
@@ -32,38 +35,57 @@ export function useFuzzySearch(data: FAQ[], options: UseFuzzySearchOptions = {})
 	const [loading, setLoading] = useState(false);
 	const [loadingMore, setLoadingMore] = useState(false);
 	const [displayCount, setDisplayCount] = useState(initialDisplayCount);
+	const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
-	// Setup fuzzy search with debounce
-	const debouncedSearch = useCallback(
-		debounce((searchQuery: string) => {
+	// Extract all unique categories from data
+	const allCategories = Array.from(new Set(data.flatMap((item) => item.categories || []))).sort();
+
+	// Filter data based on search query and categories
+	const filterData = useCallback(
+		(searchQuery: string, categories: string[]) => {
 			setLoading(true);
 
 			try {
-				if (!searchQuery.trim()) {
-					setFilteredData(data);
-				} else {
-					const searchResults = fuzzySearch<FAQ>(searchQuery, data, {
+				// First filter by search query
+				let results = data;
+				if (searchQuery.trim()) {
+					results = fuzzySearch<FAQ>(searchQuery, data, {
 						keys: ['title', 'description', 'categories'],
 						...searchOptions,
-					});
-
-					setFilteredData(searchResults.map((result) => result.item));
+					}).map((result) => result.item);
 				}
+
+				// Then filter by categories if any are selected
+				if (categories.length > 0) {
+					results = results.filter((item) =>
+						item.categories?.some((category) => categories.includes(category))
+					);
+				}
+
+				setFilteredData(results);
 			} finally {
 				setLoading(false);
 			}
-		}, debounceMs),
-		[data, searchOptions, debounceMs]
+		},
+		[data, searchOptions]
 	);
 
-	// Trigger search when query changes
+	// Setup debounced search
+	const debouncedSearch = useCallback(
+		debounce((searchQuery: string, categories: string[]) => {
+			filterData(searchQuery, categories);
+		}, debounceMs),
+		[filterData, debounceMs]
+	);
+
+	// Trigger search when query or categories change
 	useEffect(() => {
-		debouncedSearch(query);
+		debouncedSearch(query, selectedCategories);
 
 		return () => {
 			debouncedSearch.cancel();
 		};
-	}, [query, debouncedSearch]);
+	}, [query, selectedCategories, debouncedSearch]);
 
 	// Update displayed results when filtered data or display count changes
 	useEffect(() => {
@@ -92,5 +114,8 @@ export function useFuzzySearch(data: FAQ[], options: UseFuzzySearchOptions = {})
 		loadingMore,
 		hasMoreResults,
 		totalResultsCount: filteredData.length,
+		selectedCategories,
+		setSelectedCategories,
+		allCategories,
 	};
 }

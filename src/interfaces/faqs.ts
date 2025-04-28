@@ -1,6 +1,7 @@
 export interface FAQ {
 	title: string;
 	description: string;
+	categories: string[];
 }
 
 export interface SearchResult {

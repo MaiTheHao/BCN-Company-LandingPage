@@ -8,6 +8,7 @@ import { fetchFAQData } from '@/lib/FQASSearch.lib';
 import ResultsLoading from './ResultsLoading';
 import LoadMoreButton from './LoadMoreButton';
 import SearchResults from './SearchResults';
+import CategoryFilter from './CategoryFilter';
 import { useFuzzySearch } from '@/hooks/useFuzzySearch';
 
 type Props = {};
@@ -32,6 +33,9 @@ function FQASSearch({}: Props) {
 		loadingMore,
 		hasMoreResults,
 		totalResultsCount,
+		selectedCategories,
+		setSelectedCategories,
+		allCategories,
 	} = useFuzzySearch(data, {
 		debounceMs: 300,
 		initialDisplayCount: searchOptions.maxResults || 6,
@@ -75,6 +79,14 @@ function FQASSearch({}: Props) {
 					<Image src='/svgs/icons/search.svg' fill alt='Tìm kiếm' />
 				</i>
 			</div>
+
+			{!isDataLoading && (
+				<CategoryFilter
+					categories={allCategories}
+					selectedCategories={selectedCategories}
+					onCategoryChange={setSelectedCategories}
+				/>
+			)}
 
 			<Suspense fallback={<ResultsLoading />}>
 				{isLoading ? (
