@@ -88,7 +88,7 @@ function Services({}: Props) {
 			<div className={styles.servicesContainer}>
 				{loading ? (
 					<LoadingSpin title='Đang tải dịch vụ...' />
-				) : (
+				) : services && services.data && services.data.data && services.data.data.length > 0 ? (
 					<ul className={styles.servicesList} ref={listRef}>
 						{services.data.data.map((service: any) => (
 							<div key={service.id} className={styles.serviceCard}>
@@ -133,6 +133,8 @@ function Services({}: Props) {
 							<FontAwesomeIcon icon={faChevronRight} />
 						</button>
 					</ul>
+				) : (
+					<div className={styles.noData}>Không có dịch vụ nào để hiển thị.</div>
 				)}
 			</div>
 		</BodyPageTemplate>
