@@ -17,7 +17,7 @@ class ServicesApiService {
 
 	async getList(page: number = 1, limit: number = 10): Promise<IErrorFirst<IPaginatedResult<IService>>> {
 		try {
-			const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${this.baseUrl}`);
+			const res = await fetch(`${this.baseUrl}`);
 			if (!res.ok) return { error: 'Không thể lấy danh sách dịch vụ.' };
 			const data: IService[] = await res.json();
 			const paginated = paginateService.paginate<IService>(data, page, limit);
@@ -29,7 +29,7 @@ class ServicesApiService {
 
 	async getById(id: string): Promise<IErrorFirst<IService>> {
 		try {
-			const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${this.baseUrl}`);
+			const res = await fetch(`${this.baseUrl}`);
 			if (!res.ok) return { error: 'Không thể lấy thông tin dịch vụ.' };
 			const data: IService[] = await res.json();
 			const service = data.find((item) => item.id === id);
