@@ -1,7 +1,11 @@
 @use '@styleVars' as v;
 
 .container {
-	background-color: v.$blue-dark;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	background-color: rgba(v.$blue-dark, 0.9);
+	backdrop-filter: blur(3px);
 }
 
 .box {

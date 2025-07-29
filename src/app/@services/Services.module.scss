@@ -37,112 +37,153 @@
 	}
 }
 
-.list {
+.servicesContainer {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.25em 0.25em 0.25em 0.25em;
+	overflow: hidden;
+}
+
+.servicesList {
+	width: 100%;
 	display: flex;
 	align-items: center;
-	width: 100%;
+	gap: 0.5em;
 	overflow-x: auto;
-	gap: 16px;
-	padding-bottom: 16px;
+	overflow-y: hidden;
 
 	&::-webkit-scrollbar {
-		height: 8px;
+		display: none;
 	}
 
-	&::-webkit-scrollbar-track {
-		background-color: v.$gray-xlight;
-		border-radius: 8px;
+	@media screen and (min-width: 768px) {
+		scroll-snap-type: x mandatory;
+		gap: 1em;
+	}
+}
+
+.navBtn {
+	display: none;
+	position: absolute;
+	background-color: rgba(v.$blue-dark, 0.8);
+	backdrop-filter: blur(2px);
+	color: v.$white;
+	border: none;
+	border-radius: 50%;
+	align-items: center;
+	justify-content: center;
+	padding: 1em;
+	outline: none;
+	cursor: pointer;
+
+	&:hover {
+		background-color: color.scale(v.$blue-dark, $lightness: -10%);
 	}
 
-	&::-webkit-scrollbar-thumb {
-		background-color: color.mix(v.$orange, v.$blue-dark, 80%);
-		border-radius: 8px;
-		transition: background-color 0.3s;
-
-		&:hover {
-			background-color: v.$orange;
-		}
+	&:active {
+		background-color: color.scale(v.$blue-dark, $lightness: -20%);
 	}
 
-	&_item {
-		aspect-ratio: 1/1.25;
+	svg {
+		aspect-ratio: 1;
+		font-size: 1.25em;
+	}
+
+	&.prev {
+		left: 2em;
+		transform: translateX(-50%);
+	}
+
+	&.next {
+		right: 2em;
+		transform: translateX(50%);
+	}
+
+	@media screen and (min-width: 768px) {
+		display: flex;
+	}
+}
+
+.serviceCard {
+	position: relative;
+	min-width: 25em;
+	max-width: 25em;
+	background: v.$white;
+	border-radius: 0.25em;
+	box-shadow: 0 0.25em 1.5em rgba(23, 39, 67, 0.08);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	cursor: pointer;
+	font-size: 0.75em;
+
+	@media screen and (min-width: 768px) {
+		font-size: 0.85em;
+	}
+
+	@media screen and (min-width: 968px) {
+		font-size: 1em;
+	}
+
+	&:hover {
+		box-shadow: 0 0.75em 2.25em rgba(23, 39, 67, 0.12);
+	}
+
+	.serviceImageContainer {
 		position: relative;
-		min-width: 300px;
-		height: auto;
-		border-radius: 8px;
+		width: 100%;
+		height: 15em;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
 		overflow: hidden;
-		transition: all 0.3s ease;
+		border-top-left-radius: 0.25em;
+		border-top-right-radius: 0.25em;
+		background: v.$gray-xlight;
+	}
 
-		&_detail {
-			display: flex;
-			flex-direction: column;
+	.serviceImage {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 
-			img {
-				object-fit: cover;
-				transition: transform 0.3s ease;
-			}
+	.serviceContent {
+		width: 100%;
+		padding: 1.25em 1em 1.5em 1em;
+		text-align: center;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 1em;
+	}
 
-			&_overlay {
-				position: absolute;
-				inset: 0 0 0 0;
-				background-color: rgba(v.$blue-dark, 0.7);
-				transition: opacity 0.3s ease;
-			}
+	.serviceTitle {
+		color: v.$blue-dark;
+		font-size: 1.15em;
+		margin: 0 0 0.5em 0;
+		min-height: 2.5em;
+		font-weight: v.$font-bold;
+	}
 
-			&_description {
-				position: absolute;
-				inset: 0 0 0 0;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				gap: 24px;
-				padding: 16px;
-				transition: all 0.3s ease;
+	.serviceDescription {
+		color: v.$gray-medium;
+		font-size: 1em;
+		margin: 0;
+		line-height: 1.5;
+		font-weight: v.$font-thin;
+	}
 
-				h3 {
-					font-size: 20px;
-					text-align: center;
-					transition: transform 0.3s ease;
-				}
-
-				p {
-					font-size: 16px;
-					text-align: center;
-					max-height: 0;
-					opacity: 0;
-					overflow: hidden;
-					transition: all 0.3s ease;
-					margin: 0;
-				}
-			}
-		}
-
-		&:hover {
-			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-
-			.list_item_detail {
-				img {
-					transform: scale(1.05);
-				}
-
-				&_overlay {
-					background-color: rgba(v.$blue-dark, 0.85);
-				}
-
-				&_description {
-					h3 {
-						transform: translateY(-10px);
-					}
-
-					p {
-						max-height: 200px;
-						opacity: 1;
-						margin-top: -10px;
-					}
-				}
-			}
-		}
+	.serviceLink {
 	}
 }
 
@@ -153,11 +194,6 @@
 
 		.title h1 {
 			font-size: 20px;
-		}
-	}
-	.list {
-		&_item {
-			min-width: 300px;
 		}
 	}
 }

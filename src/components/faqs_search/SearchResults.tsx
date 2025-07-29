@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './FQASSearch.module.scss';
 import { montserrat, open_sans } from '@/app/fonts';
-import { FAQ } from '@/interfaces/faqs';
+import { IFAQ } from '@/interfaces/faqs';
 
 interface SearchResultsProps {
-	results: FAQ[];
+	results: IFAQ[];
 	totalResultsCount: number;
 }
 

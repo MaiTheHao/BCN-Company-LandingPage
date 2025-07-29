@@ -80,7 +80,7 @@ const BANNER_CONFIG = {
 	},
 };
 
-function Introduce({}: Props) {
+async function Introduce({}: Props) {
 	return (
 		<BodyPageTemplate
 			customID={INTRODUCE_PAGE_CONFIG.customID}

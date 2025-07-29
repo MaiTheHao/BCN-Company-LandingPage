@@ -1,0 +1,47 @@
+@use '../../app/_vars.scss' as *;
+
+.paginateBar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	padding: 16px 0;
+	background: transparent;
+}
+
+.pageBtn,
+.navBtn {
+	border: none;
+	background: $gray-xlight;
+	color: $gray-dark;
+	padding: 6px 12px;
+	margin: 0 2px;
+	border-radius: 4px;
+	font-weight: $font-semibold;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+	min-width: 36px;
+	min-height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.pageBtn.active {
+	background: $blue-dark;
+	color: $white;
+	cursor: default;
+}
+
+.pageBtn:hover:not(.active),
+.navBtn:hover:not(:disabled) {
+	background: $orange;
+	color: $white;
+}
+
+.navBtn:disabled {
+	background: $gray-light;
+	color: $gray-medium;
+	cursor: not-allowed;
+}

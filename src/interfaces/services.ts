@@ -1,4 +1,5 @@
-export interface ServiceItem {
+export interface IService {
+	id: string;
 	image: string;
 	title: string;
 	description: string;
@@ -6,6 +7,6 @@ export interface ServiceItem {
 }
 
 export interface ListServicesProps {
-	services: ServiceItem[];
+	services: IService[];
 	styles: Record<string, string>;
 }

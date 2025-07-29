@@ -3,7 +3,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import styles from './FQASSearch.module.scss';
 import Image from 'next/image';
 import { open_sans } from '@/app/fonts';
-import { FAQ, SearchOptions } from '@/interfaces/faqs';
+import { IFAQ, SearchOptions } from '@/interfaces/faqs';
 import { fetchFAQData } from '@/lib/FQASSearch.lib';
 import ResultsLoading from './ResultsLoading';
 import LoadMoreButton from './LoadMoreButton';
@@ -14,7 +14,7 @@ import { useFuzzySearch } from '@/hooks/useFuzzySearch';
 type Props = {};
 
 function FQASSearch({}: Props) {
-	const [data, setData] = useState<FAQ[]>([]);
+	const [data, setData] = useState<IFAQ[]>([]);
 	const [isDataLoading, setIsDataLoading] = useState(true);
 
 	const searchOptions: SearchOptions = {
@@ -51,7 +51,7 @@ function FQASSearch({}: Props) {
 				setData(faqData);
 				setIsDataLoading(false);
 			} catch (error) {
-				console.error('Error fetching FAQ data:', error);
+				console.error('Error fetching IFAQ data:', error);
 				setIsDataLoading(false);
 			}
 		};

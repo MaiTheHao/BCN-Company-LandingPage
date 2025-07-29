@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import debounce from 'lodash.debounce';
 import { fuzzySearch, FuzzySearchOptions } from '@/utils/fuzzySearch';
-import { FAQ } from '@/interfaces/faqs';
+import { IFAQ } from '@/interfaces/faqs';
 
 interface UseFuzzySearchOptions extends FuzzySearchOptions {
 	debounceMs?: number;
@@ -11,9 +11,9 @@ interface UseFuzzySearchOptions extends FuzzySearchOptions {
 interface UseFuzzySearchResult {
 	query: string;
 	setQuery: (query: string) => void;
-	results: FAQ[];
-	filteredData: FAQ[];
-	displayedResults: FAQ[];
+	results: IFAQ[];
+	filteredData: IFAQ[];
+	displayedResults: IFAQ[];
 	displayCount: number;
 	setDisplayCount: (count: number) => void;
 	loading: boolean;
@@ -26,12 +26,12 @@ interface UseFuzzySearchResult {
 	allCategories: string[];
 }
 
-export function useFuzzySearch(data: FAQ[], options: UseFuzzySearchOptions = {}): UseFuzzySearchResult {
+export function useFuzzySearch(data: IFAQ[], options: UseFuzzySearchOptions = {}): UseFuzzySearchResult {
 	const { debounceMs = 300, initialDisplayCount = 6, ...searchOptions } = options;
 
 	const [query, setQuery] = useState('');
-	const [filteredData, setFilteredData] = useState<FAQ[]>(data);
-	const [displayedResults, setDisplayedResults] = useState<FAQ[]>([]);
+	const [filteredData, setFilteredData] = useState<IFAQ[]>(data);
+	const [displayedResults, setDisplayedResults] = useState<IFAQ[]>([]);
 	const [loading, setLoading] = useState(false);
 	const [loadingMore, setLoadingMore] = useState(false);
 	const [displayCount, setDisplayCount] = useState(initialDisplayCount);
@@ -49,7 +49,7 @@ export function useFuzzySearch(data: FAQ[], options: UseFuzzySearchOptions = {})
 				// First filter by search query
 				let results = data;
 				if (searchQuery.trim()) {
-					results = fuzzySearch<FAQ>(searchQuery, data, {
+					results = fuzzySearch<IFAQ>(searchQuery, data, {
 						keys: ['title', 'description', 'categories'],
 						...searchOptions,
 					}).map((result) => result.item);

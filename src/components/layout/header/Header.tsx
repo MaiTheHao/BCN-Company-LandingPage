@@ -1,13 +1,12 @@
 import React from 'react';
 import styles from './Header.module.scss';
-import { COMPANY_INFO, COMPANY_CONTACT } from '@data';
+import { COMPANY_CONTACT } from '@data';
 import Image from 'next/image';
 import HeaderNavItem from '../header_nav_item/HeaderNavItem';
 import { open_sans } from '@/app/fonts';
 import { INavItem } from '@/interfaces/header';
 import Link from 'next/link';
 
-const COMPANY_LOCATION = COMPANY_INFO.location;
 const NAV_ITEMS: INavItem[] = [
 	{
 		icon: 'svgs/icons/zalo-default.svg',
@@ -20,12 +19,6 @@ const NAV_ITEMS: INavItem[] = [
 		title: 'Facebook',
 		subtitle: 'Fanpage của chúng tôi',
 		href: COMPANY_CONTACT.facebook,
-	},
-	{
-		icon: 'svgs/icons/location-default.svg',
-		title: COMPANY_LOCATION.address.province,
-		subtitle: `${COMPANY_LOCATION.address.street}, ${COMPANY_LOCATION.address.area}, ${COMPANY_LOCATION.address.ward}, ${COMPANY_LOCATION.address.city}`,
-		href: COMPANY_CONTACT.googleMap,
 	},
 ];
 

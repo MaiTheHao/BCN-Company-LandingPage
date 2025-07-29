@@ -1,11 +1,11 @@
-export interface FAQ {
+export interface IFAQ {
 	title: string;
 	description: string;
 	categories: string[];
 }
 
 export interface SearchResult {
-	results: FAQ[];
+	results: IFAQ[];
 	count: number;
 	query: string;
 }
