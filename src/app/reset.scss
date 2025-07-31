@@ -1,4 +1,4 @@
-@use '@styleVars' as v;
+@use './vars' as v;
 @use 'sass:color';
 
 * {
@@ -13,22 +13,22 @@ html {
 	font-size: 16px;
 	scroll-behavior: smooth;
 	overflow-x: hidden;
-	background-color: white;
+	background-color: v.$brand-background-light;
 	&::-webkit-scrollbar {
 		width: 8px;
 	}
 
 	&::-webkit-scrollbar-track {
-		background-color: v.$gray-xlight;
+		background-color: v.$neutral-light;
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background-color: v.$gray-light;
+		background-color: v.$neutral-medium;
 		border-radius: 4px;
 	}
 
 	&::-webkit-scrollbar-thumb:hover {
-		background-color: v.$gray-medium;
+		background-color: v.$neutral-dark;
 	}
 }
 
@@ -38,17 +38,17 @@ body {
 	}
 
 	&::-webkit-scrollbar-track {
-		background-color: v.$gray-xlight;
+		background-color: v.$neutral-light;
 		border-radius: 8px;
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background-color: color.mix(v.$orange, v.$blue-dark, 80%);
+		background-color: color.mix(v.$brand-accent, v.$brand-primary, 80%);
 		border-radius: 8px;
 		transition: background-color 0.3s;
 
 		&:hover {
-			background-color: v.$orange;
+			background-color: v.$brand-accent;
 		}
 	}
 }

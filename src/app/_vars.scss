@@ -1,15 +1,22 @@
-$blue-dark: #172743;
-$orange: #ff8614;
-$white: #ffffff;
-$gray-xlight: #f5f5f5;
-$gray-light: #aaaaaa;
-$gray-medium: #4b4b4b;
-$gray-dark: #333333;
-$color-success: #6fae8a;
-$color-warning: #ffcc80;
-$color-error: #e05c5c;
-$color-info: #80bfff;
-$font-regular: 400;
-$font-thin: 300;
-$font-semibold: 600;
-$font-bold: 700;
+$brand-primary: #172743; // Màu xanh đen đậm, tượng trưng cho sự vững chắc, công nghệ
+$brand-accent: #ff8614; // Màu cam nổi bật, dùng làm điểm nhấn, CTA, năng lượng
+$brand-text-light: #ffffff; // Màu trắng cho chữ và các thành phần sáng
+$brand-background-light: #f5f5f5; // Nền sáng phụ trợ, sạch sẽ
+
+$neutral-light: #aaaaaa; // Xám nhạt, dùng cho các đường viền, icon phụ
+$neutral-medium: #4b4b4b; // Xám trung bình, dùng cho văn bản phụ, tiêu đề phụ
+$neutral-dark: #333333; // Xám đậm, dùng cho văn bản chính, tiêu đề
+
+$status-success: #6fae8a; // Xanh lá cây cho thông báo thành công
+$status-warning: #ffcc80; // Cam nhạt cho thông báo cảnh báo
+$status-error: #e05c5c; // Đỏ cho thông báo lỗi
+$status-info: #80bfff; // Xanh dương cho thông báo thông tin
+
+$font-weight-thin: 300;
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Font families (if you want to use them)
+$font-family-title: var(--font-montserrat);
+$font-family-body: var(--font-open-sans);
