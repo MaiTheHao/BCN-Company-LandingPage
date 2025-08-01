@@ -2,8 +2,8 @@ import type React from 'react';
 import './globals.scss';
 import { metadata } from './root-metadata';
 import { montserrat, open_sans } from './fonts';
-import Header from '@/components/layout/Header/Header';
-import Footer from '@/components/layout/Footer/Footer';
+import Header from '../components/layout/Header/Header';
+import Footer from '../components/layout/Footer/Footer';
 
 export const viewport = {
 	width: 'device-width',
