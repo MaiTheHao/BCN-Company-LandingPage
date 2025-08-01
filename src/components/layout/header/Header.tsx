@@ -7,8 +7,7 @@ import { useState } from 'react';
 import { INavItem } from '@/interfaces/nav-item.interface';
 import Link from 'next/link';
 import COMPANY_INFO from '@/data/company-info';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComment } from '@fortawesome/free-regular-svg-icons';
+import { MessageCircle } from 'lucide-react';
 import { LANDING_PAGE_SECTIONS } from '@/consts/landing-page';
 
 type Props = {};
@@ -59,7 +58,7 @@ function Header({}: Props) {
 						target='_blank'
 						rel='noopener noreferrer'
 					>
-						<FontAwesomeIcon icon={faComment} />
+						<MessageCircle />
 						Báo giá ngay
 					</Link>
 				</div>

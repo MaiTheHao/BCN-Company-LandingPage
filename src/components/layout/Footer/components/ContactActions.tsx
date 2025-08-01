@@ -2,8 +2,7 @@ import React from 'react';
 import styles from '../Footer.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { Facebook } from 'lucide-react';
 import ZaloIconSrc from '@/assets/icons/zalo.svg';
 import COMPANY_INFO from '@/data/company-info';
 
@@ -16,7 +15,7 @@ const ContactActions = () => (
 				<span>Chat Zalo để báo giá</span>
 			</Link>
 			<Link href={COMPANY_INFO.contact.facebook} target='_blank' className={styles.contactLink}>
-				<FontAwesomeIcon icon={faFacebook} className={styles.contactIcon} />
+				<Facebook size={18} />
 				<span>Theo dõi fanpage</span>
 			</Link>
 		</div>
