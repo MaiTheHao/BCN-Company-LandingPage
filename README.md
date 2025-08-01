@@ -1,6 +1,6 @@
 # Cơ Khí Vạn Năng - Landing Page v2
 
-![Company Logo](./public/svgs/logo-1.svg)
+![Company Logo](./src/assets/logos/logo-full--blue-white-orange.svg)
 
 ## Giới thiệu
 
