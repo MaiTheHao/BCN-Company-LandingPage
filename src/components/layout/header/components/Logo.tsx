@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import styles from '../Header.module.scss';
 import Src from '@/assets/logos/logo-full--white.svg';

@@ -19,7 +19,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 
 export { metadata };
-export const viewport = {
-	width: 'device-width',
-	initialScale: 1,
-};
