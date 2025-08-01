@@ -1,7 +1,8 @@
 import './globals.scss';
+import { metadata } from './root-metadata';
 import { montserrat, open_sans } from './fonts';
-import Footer from '@/components/layout/Footer/Footer';
 import Header from '@/components/layout/Header/Header';
+import Footer from '@/components/layout/Footer/Footer';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
@@ -16,3 +17,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		</html>
 	);
 }
+
+export { metadata };
+export const viewport = {
+	width: 'device-width',
+	initialScale: 1,
+};
