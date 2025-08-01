@@ -1,0 +1,197 @@
+@use '../vars' as *;
+@use 'sass:color';
+
+.cyber-grid {
+	position: absolute;
+	inset: 0;
+	background-image: linear-gradient(rgba($brand-primary, 0.05) 1px, transparent 1px),
+		linear-gradient(90deg, rgba($brand-primary, 0.03) 1px, transparent 1px);
+	background-size: 20px 20px;
+	transition: opacity 0.4s ease;
+	opacity: 0;
+}
+
+.cyber-icon {
+	aspect-ratio: 1;
+	position: relative;
+	width: max-content;
+	height: max-content;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.675em;
+	background-color: rgba($brand-accent, 0.075);
+	border: 1px solid rgba($brand-accent, 0.2);
+	border-radius: $border-radius-xl;
+
+	svg,
+	img {
+		aspect-ratio: 1;
+		width: 1.25em;
+		height: 1.25em;
+		color: $brand-accent;
+	}
+}
+
+.cyber-card {
+	position: relative;
+	background: linear-gradient(135deg, rgba($white, 0.95), rgba($brand-background-light, 0.9));
+	border: 1px solid rgba($neutral-light, 0.3);
+	border-radius: $border-radius-xl;
+	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	backdrop-filter: blur(10px);
+	box-shadow: 0 10px 15px rgba($brand-primary, 0.1);
+	overflow: hidden;
+
+	> .cyber-grid {
+		border-radius: $border-radius-xl;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background: linear-gradient(90deg, transparent, $brand-accent, transparent);
+		opacity: 0;
+		transition: opacity 0.4s ease;
+	}
+
+	&::after {
+		pointer-events: none;
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba($brand-accent, 0.03), transparent);
+		transition: left 0.6s ease;
+	}
+
+	&:hover {
+		transform: translateY(-8px) scale(1.02);
+		border-color: rgba($brand-accent, 0.3);
+		box-shadow: 0 20px 40px rgba($brand-primary, 0.1), 0 0 0 1px rgba($brand-accent, 0.1),
+			inset 0 1px 0 rgba($white, 0.2);
+
+		.cyber-grid {
+			opacity: 1;
+		}
+
+		.cyber-icon {
+			background-color: rgba($brand-accent, 1);
+			border-color: rgba($brand-accent, 1);
+			color: $brand-text-light;
+
+			* {
+				color: $brand-text-light;
+			}
+		}
+
+		&::before {
+			opacity: 1;
+		}
+		&::after {
+			left: 100%;
+		}
+	}
+}
+
+.cyber-stat {
+	font-family: $font-family-title, sans-serif;
+	font-weight: $font-weight-bold;
+	color: $brand-accent;
+	text-shadow: 0 0 10px rgba($brand-accent, 0.3);
+	position: relative;
+
+	&::before {
+		content: '>';
+		position: absolute;
+		left: -15px;
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		color: $brand-accent;
+	}
+}
+
+.cyber-card:hover .cyber-stat::before {
+	opacity: 1;
+}
+
+.cyber-feature {
+	position: relative;
+	padding-left: 20px;
+	color: $neutral-medium;
+	transition: color 0.3s ease;
+
+	&::before {
+		content: '▶';
+		position: absolute;
+		left: 0;
+		color: $brand-accent;
+		font-size: 8px;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: all 0.3s ease;
+	}
+}
+
+.cyber-card:hover .cyber-feature {
+	color: $neutral-dark;
+	&::before {
+		color: color.adjust($brand-accent, $hue: -10, $lightness: -10%);
+		transform: translateY(-50%) scale(1.2);
+	}
+}
+
+.cyber-title {
+	font-family: $font-family-title, sans-serif;
+	font-weight: $font-weight-semibold;
+	background: linear-gradient(135deg, $brand-primary, color.adjust($brand-primary, $hue: 20, $lightness: 10%));
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: -0.25em;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background: linear-gradient(90deg, $brand-accent, color.adjust($brand-accent, $hue: -10, $lightness: -10%));
+		transition: width 0.4s ease;
+	}
+}
+
+.cyber-card:hover .cyber-title::after {
+	width: 100%;
+}
+
+.cyber-testimonial {
+	position: relative;
+	background: linear-gradient(135deg, rgba($white, 0.95) 0%, rgba($brand-background-light, 0.9) 100%);
+	border: 1px solid rgba($brand-primary, 0.1);
+	border-left: 4px solid $brand-accent;
+	transition: all 0.4s ease;
+}
+
+.cyber-testimonial::before {
+	content: '"';
+	position: absolute;
+	top: -10px;
+	right: 20px;
+	font-size: 60px;
+	color: rgba($brand-accent, 0.1);
+	font-family: $font-family-title, sans-serif;
+	line-height: 1;
+}
+
+.cyber-testimonial:hover {
+	box-shadow: 0px 0 20px rgba($brand-accent, 0.1);
+}

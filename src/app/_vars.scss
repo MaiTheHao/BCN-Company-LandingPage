@@ -3,6 +3,7 @@ $brand-accent: #ff8614; // Màu cam nổi bật, dùng làm điểm nhấn, CTA,
 $brand-text-light: #ffffff; // Màu trắng cho chữ và các thành phần sáng
 $brand-background-light: #f5f5f5; // Nền sáng phụ trợ, sạch sẽ
 
+$white: #ffffff; // Màu trắng, dùng cho nền và chữ sáng
 $neutral-light: #aaaaaa; // Xám nhạt, dùng cho các đường viền, icon phụ
 $neutral-medium: #4b4b4b; // Xám trung bình, dùng cho văn bản phụ, tiêu đề phụ
 $neutral-dark: #333333; // Xám đậm, dùng cho văn bản chính, tiêu đề
@@ -14,9 +15,21 @@ $status-info: #80bfff; // Xanh dương cho thông báo thông tin
 
 $font-weight-thin: 300;
 $font-weight-regular: 400;
+$font-weight-medium: 500;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
-// Font families (if you want to use them)
 $font-family-title: var(--font-montserrat);
 $font-family-body: var(--font-open-sans);
+
+$max-screen-width: 1400px; // Giới hạn độ rộng tối đa của layout chính
+
+// Breakpoints
+$breakpoint-mobile: 480px; // Dành cho thiết bị di động
+$breakpoint-tablet: 768px; // Dành cho máy tính bảng
+$breakpoint-desktop: 1024px; // Dành cho máy tính để bàn
+$breakpoint-large: 1200px; // Dành cho màn hình lớn
+
+$border-radius-base: 0.375rem; // Độ bo góc chung cho các thành phần
+$border-radius-lg: 0.5rem; // Độ bo góc lớn hơn cho các thành phần nổi bật
+$border-radius-xl: 0.75rem; // Độ bo góc rất lớn cho các thành phần đặc biệt

@@ -1,7 +1,9 @@
 import type React from 'react';
-import './globals.css';
+import './globals.scss';
 import { metadata } from './root-metadata';
-import { open_sans } from './fonts';
+import Header from '@/components/layout/Header/Header';
+import Footer from '@/components/layout/Footer/Footer';
+import { montserrat, open_sans } from './fonts';
 
 export const viewport = {
 	width: 'device-width',
@@ -13,7 +15,13 @@ export { metadata };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang='vi'>
-			<body className={open_sans.className}>{children}</body>
+			<body className={`${montserrat.variable} ${open_sans.variable}`}>
+				<div id='root'>
+					<Header />
+					<main>{children}</main>
+					<Footer />
+				</div>
+			</body>
 		</html>
 	);
 }

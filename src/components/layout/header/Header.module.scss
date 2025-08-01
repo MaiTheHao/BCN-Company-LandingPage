@@ -1,0 +1,137 @@
+@use '../../../app/vars.scss' as *;
+
+.header {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	width: 100%;
+	padding: 0.5rem 0;
+	background-color: $brand-primary;
+	box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.15);
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.navbar {
+	position: relative;
+
+	.navList {
+		display: flex;
+		flex-direction: column;
+
+		@media screen and (min-width: $breakpoint-tablet) {
+			flex-direction: row;
+			align-items: center;
+		}
+
+		.navItem {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			.navLink {
+				padding: 0.5rem 1rem;
+				color: $brand-text-light;
+				transition: color 0.3s ease;
+
+				&:hover {
+					color: $brand-accent;
+				}
+			}
+		}
+	}
+}
+
+.tabletNavbar {
+	display: none;
+
+	@media screen and (min-width: $breakpoint-tablet) {
+		display: block;
+	}
+}
+
+.mobileNavbar {
+	padding: 0.5rem 0;
+	margin: 0.5rem 0;
+	border-top: 1px solid $neutral-medium;
+	border-bottom: 1px solid $neutral-medium;
+
+	.navList {
+		.navItem {
+			.navLink {
+				width: 100%;
+				padding: 0.5rem 0;
+				color: $brand-text-light;
+				transition: color 0.3s ease;
+
+				&:hover {
+					color: $brand-accent;
+				}
+			}
+		}
+	}
+}
+
+.ctas {
+	display: none;
+	align-items: center;
+	gap: 1rem;
+
+	@media screen and (min-width: $breakpoint-desktop) {
+		display: flex;
+	}
+}
+
+.hamburgerMenuButton {
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.375em;
+	font-size: 1.125em;
+	background-color: transparent;
+
+	span {
+		width: 1.25em;
+		height: 0.1em;
+		background-color: $brand-text-light;
+		transition: background-color 0.3s, translate 0.15s, opacity 0.25s, transform 0.25s;
+	}
+
+	&.active {
+		span:nth-child(1) {
+			transform: rotate(45deg);
+			translate: 0 0.475em;
+		}
+		span:nth-child(2) {
+			opacity: 0;
+			translate: 100%;
+		}
+		span:nth-child(3) {
+			transform: rotate(-45deg);
+			translate: 0 -0.475em;
+		}
+	}
+
+	&:hover span {
+		background-color: $brand-accent;
+	}
+
+	@media screen and (min-width: $breakpoint-tablet) {
+		display: none;
+	}
+}
+
+.hamburgerMenu {
+	display: flex;
+	flex-direction: column;
+
+	@media screen and (min-width: $breakpoint-tablet) {
+		display: none;
+	}
+}

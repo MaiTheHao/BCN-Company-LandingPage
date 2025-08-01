@@ -1,0 +1,322 @@
+@use '../../../../app/vars' as *;
+@use 'sass:color';
+
+.contactSection {
+	background: $brand-background-light;
+}
+
+.header {
+	text-align: center;
+	margin-bottom: 4rem;
+}
+
+.headerAccent {
+	display: inline-block;
+	padding: 0.5rem 1rem;
+	background: rgba($brand-accent, 0.1);
+	border-radius: 999px;
+	color: $brand-accent;
+	font-size: 0.95rem;
+	font-weight: $font-weight-medium;
+	margin-bottom: 1rem;
+}
+
+.headerTitle {
+	font-size: 2.5rem;
+	font-weight: $font-weight-bold;
+	color: $neutral-dark;
+	margin-bottom: 1.5rem;
+	font-family: $font-family-title;
+	@media (min-width: $breakpoint-desktop) {
+		font-size: 3rem;
+	}
+}
+
+.headerDesc {
+	font-size: 1.25rem;
+	color: $neutral-medium;
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.grid {
+	display: grid;
+	gap: 3rem;
+	@media (min-width: $breakpoint-desktop) {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+.channels {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.cardContent {
+	padding: 2rem;
+	position: relative;
+	z-index: 1;
+}
+
+.cardHeader {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+.cardIcon {
+	width: 4rem;
+	height: 4rem;
+	padding: 0.75rem;
+	border-radius: $border-radius-xl;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 1rem;
+	background: rgba($brand-accent, 0.075);
+	transition: background 0.3s, transform 0.3s;
+}
+
+.cardIconWrap {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.iconAccent {
+	width: 2rem;
+	height: 2rem;
+	color: $brand-accent;
+	z-index: 1;
+}
+
+.cardTitle {
+	font-size: 1.5rem;
+	font-weight: $font-weight-bold;
+	color: $neutral-dark;
+	font-family: $font-family-title;
+}
+
+.cardDesc {
+	color: $neutral-medium;
+	font-family: $font-family-body;
+}
+
+.features {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.iconAccentSmall {
+	width: 1.25rem;
+	height: 1.25rem;
+	color: $brand-accent;
+	margin-right: 0.75rem;
+	vertical-align: middle;
+}
+
+.zaloLink {
+	background-color: $brand-accent !important;
+	color: $brand-text-light !important;
+}
+
+.facebookLink {
+	background-color: #3b82f6 !important;
+	color: $brand-text-light !important;
+}
+
+.cardIconFacebook {
+	width: 4rem;
+	height: 4rem;
+	border-radius: $border-radius-xl;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 1rem;
+	background: rgba(#3b82f6, 0.1);
+	transition: background 0.3s, transform 0.3s;
+}
+
+.iconFacebook {
+	width: 2rem;
+	height: 2rem;
+	color: #3b82f6;
+	z-index: 1;
+}
+
+.iconFacebookSmall {
+	width: 1.25rem;
+	height: 1.25rem;
+	color: #3b82f6;
+	margin-right: 0.75rem;
+	vertical-align: middle;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.infoCard {
+	background: $white;
+	border-radius: $border-radius-xl;
+	box-shadow: 0 10px 15px rgba($brand-primary, 0.08);
+	padding: 2rem;
+	border: none;
+}
+
+.infoTitle {
+	font-size: 1.5rem;
+	font-weight: $font-weight-bold;
+	color: $neutral-dark;
+	margin-bottom: 1.5rem;
+	font-family: $font-family-title;
+}
+
+.infoList {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.infoItem {
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+}
+
+.iconAccentInfo {
+	width: 1.5rem;
+	height: 1.5rem;
+	color: $brand-accent;
+	margin-top: 0.25rem;
+	flex-shrink: 0;
+}
+
+.infoLabel {
+	font-weight: $font-weight-semibold;
+	color: $neutral-dark;
+	margin-bottom: 0.25rem;
+}
+
+.infoValue {
+	color: $neutral-medium;
+}
+
+.infoPhone {
+	color: $brand-accent;
+	font-weight: $font-weight-medium;
+	transition: color 0.2s;
+	&:hover {
+		color: color.adjust($brand-accent, $lightness: -10%);
+	}
+}
+
+.infoAccent {
+	color: $brand-accent;
+	font-weight: $font-weight-medium;
+}
+
+.ctaCard {
+	background: $brand-primary;
+	color: $brand-text-light;
+	border-radius: $border-radius-xl;
+	box-shadow: 0 10px 15px rgba($brand-primary, 0.08);
+	padding: 2rem;
+	text-align: center;
+}
+
+.ctaTitle {
+	font-size: 1.5rem;
+	font-weight: $font-weight-bold;
+	margin-bottom: 1rem;
+}
+
+.ctaDesc {
+	color: rgba($brand-text-light, 0.9);
+	margin-bottom: 1.5rem;
+}
+
+.ctaActions {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.legalTitle {
+	font-size: 1.25rem;
+	font-weight: $font-weight-bold;
+	color: $neutral-dark;
+	margin-bottom: 1rem;
+}
+
+.legalList {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	font-size: 0.95rem;
+	color: $neutral-medium;
+}
+
+.legalItem {
+	display: flex;
+	justify-content: space-between;
+}
+
+.legalValue {
+	font-weight: $font-weight-medium;
+	color: $neutral-dark;
+}
+
+.legalAccent {
+	font-weight: $font-weight-medium;
+	color: $brand-accent;
+}
+
+.mapWrap {
+	margin-top: 3rem;
+}
+
+.mapCard {
+	background: $white;
+	border-radius: $border-radius-xl;
+	box-shadow: 0 10px 15px rgba($brand-primary, 0.08);
+	border: none;
+	overflow: hidden;
+}
+
+.mapContent {
+	height: 24rem;
+	background: $neutral-light;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mapInfo {
+	text-align: center;
+	color: $neutral-medium;
+}
+
+.mapIcon {
+	width: 3rem;
+	height: 3rem;
+	margin: 0 auto 1rem auto;
+	color: $brand-accent;
+}
+
+.mapTitle {
+	font-size: 1.1rem;
+	font-weight: $font-weight-semibold;
+	color: $neutral-dark;
+	margin-bottom: 0.5rem;
+}
+
+.mapAddress {
+	font-size: 0.95rem;
+	margin-top: 0.5rem;
+}

@@ -1,0 +1,150 @@
+@use '../../../../app/vars' as *;
+@use 'sass:color';
+
+.projectsGrid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2rem;
+	margin-bottom: 3rem;
+	@media (min-width: 1024px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.projectCard {
+	transition: all 0.3s;
+	box-shadow: 0 4px 24px rgba($brand-primary, 0.08);
+	overflow: hidden;
+	position: relative;
+	&:hover {
+		transform: translateY(-8px) scale(1.02);
+		box-shadow: 0 20px 40px rgba($brand-primary, 0.1), 0 0 0 1px rgba($brand-accent, 0.1),
+			inset 0 1px 0 rgba($white, 0.2);
+	}
+}
+
+.projectImageWrap {
+	position: relative;
+	overflow: hidden;
+}
+.projectImage {
+	width: 100%;
+	height: 12rem;
+	object-fit: cover;
+	transition: transform 0.3s;
+	&:hover {
+		transform: scale(1.1);
+	}
+}
+.projectCategoryWrap {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+}
+.projectCategory {
+	background: $brand-accent;
+	color: $white;
+	padding: 0.5rem 1rem;
+	border-radius: 999px;
+	font-size: 0.875rem;
+	font-weight: $font-weight-medium;
+	font-family: monospace;
+}
+.projectImageOverlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent);
+	opacity: 0;
+	transition: opacity 0.3s;
+	.projectCard:hover & {
+		opacity: 1;
+	}
+}
+
+.projectContent {
+	padding: 1.5rem;
+	position: relative;
+	z-index: 10;
+}
+.projectDesc {
+	color: $neutral-medium;
+	margin-bottom: 1rem;
+	line-height: 1.7;
+	font-family: var(--font-open-sans), sans-serif;
+}
+.projectInfo {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	font-size: 0.95rem;
+	color: $neutral-medium;
+	margin-bottom: 1rem;
+	font-family: monospace;
+}
+.projectInfoItem {
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+.projectInfoIcon {
+	width: 1.1em;
+	height: 1.1em;
+}
+.projectHighlights {
+	margin-bottom: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+.projectButton {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	border-radius: $border-radius-lg;
+	font-weight: $font-weight-semibold;
+	background: rgba($brand-accent, 0.08);
+	border: none;
+	cursor: pointer;
+	transition: background 0.2s;
+	&:hover {
+		background: $brand-accent;
+		color: $white;
+	}
+}
+.projectButtonLink {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: inherit;
+	text-decoration: none;
+}
+.projectButtonIcon {
+	width: 1.1em;
+	height: 1.1em;
+	margin-left: 0.5em;
+	transition: transform 0.2s;
+	.projectButton:hover & {
+		transform: translateX(4px);
+	}
+}
+.ctaMore {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	margin-top: 1.5rem;
+	font-size: 1.1rem;
+	font-weight: $font-weight-semibold;
+	padding: 0.75rem 2rem;
+	border-radius: $border-radius-lg;
+	background: $brand-accent;
+	color: $white;
+	text-decoration: none;
+	transition: background 0.2s;
+	&:hover {
+		background: color.adjust($brand-accent, $lightness: -10%);
+	}
+}
+.ctaMoreIcon {
+	width: 1.25em;
+	height: 1.25em;
+	margin-left: 0.5em;
+}

@@ -1,1 +1,32 @@
-@use './vars' as v;
+@use './vars' as *;
+@use 'sass:color';
+@use './reset.scss';
+@use './styles/cyber-style.scss';
+@use './styles/cta-style.scss';
+
+#root {
+	min-height: 100vh;
+	min-width: 100vw;
+	background-color: $brand-background-light;
+}
+
+.container {
+	width: 100%;
+	max-width: $max-screen-width;
+	height: 100%;
+	padding: 0 1em;
+	margin: 0 auto;
+}
+
+.accent-title {
+	display: inline-block;
+	width: max-content;
+	padding: 0.5rem 1rem;
+	background: rgba($brand-accent, 0.1);
+	border-radius: 10rem;
+	color: $brand-accent;
+	font-size: 0.875rem;
+	font-weight: $font-weight-semibold;
+	text-transform: capitalize;
+	margin-bottom: 1rem;
+}

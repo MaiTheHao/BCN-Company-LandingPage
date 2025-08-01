@@ -1,4 +1,4 @@
-import { COMPANY_INFO } from '@/data/company-info';
+import COMPANY_INFO from '@/data/company-info';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
