@@ -1,5 +1,4 @@
 import './globals.scss';
-import { metadata } from './root-metadata';
 import { montserrat, open_sans } from './fonts';
 import Footer from '@/components/layout/Footer/Footer';
 import Header from '@/components/layout/Header/Header';
@@ -17,5 +16,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		</html>
 	);
 }
-
-export { metadata };
