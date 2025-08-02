@@ -9,6 +9,8 @@ import Link from 'next/link';
 import COMPANY_INFO from '@/data/company-info';
 import { MessageCircle } from 'lucide-react';
 import { LANDING_PAGE_SECTIONS } from '@/consts/landing-page';
+import { useClickOutside } from '@/hooks/useClickOutside';
+import { useCallback } from 'react';
 
 type Props = {};
 
@@ -25,6 +27,14 @@ function Header({}: Props) {
 		setIsHBGMenuOpen((prev) => !prev);
 	};
 
+	const handleClickOutside = useCallback(() => {
+		setIsHBGMenuOpen(false);
+	}, []);
+
+	const hbgMenuRef = useClickOutside<HTMLDivElement>({
+		onClickOutside: handleClickOutside,
+	});
+
 	return (
 		<header className={styles.header}>
 			<div className={`container ${styles.container}`}>
@@ -38,6 +48,7 @@ function Header({}: Props) {
 				<button
 					type='button'
 					onClick={toggleHBGMenu}
+					aria-label='Mở menu'
 					className={`${styles.hamburgerMenuButton} ${isHBGMenuOpen ? styles.active : ''}`}
 				>
 					<span></span>
@@ -50,7 +61,7 @@ function Header({}: Props) {
 			</div>
 			{/* Hamburger Menu */}
 			{isHBGMenuOpen && (
-				<div className={`${styles.hamburgerMenu} container`}>
+				<div ref={hbgMenuRef} className={`${styles.hamburgerMenu} container`}>
 					<Navbar items={NavItems} className={styles.mobileNavbar} />
 					<Link
 						href={COMPANY_INFO.contact.zalo}

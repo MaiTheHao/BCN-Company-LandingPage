@@ -156,27 +156,6 @@ export function ContactSection() {
 							</Link>
 						</div>
 					</section>
-					<section className={styles['contact__info-card']}>
-						<h3 className={styles['contact__legal-title']}>Thông Tin Doanh Nghiệp</h3>
-						<ul className={styles['contact__legal-list']}>
-							<li className={styles['contact__legal-item']}>
-								<span>Tên công ty:</span>
-								<span className={styles['contact__legal-value']}>Công Ty TNHH Cơ Khí Vạn Năng</span>
-							</li>
-							<li className={styles['contact__legal-item']}>
-								<span>Mã số thuế:</span>
-								<span className={styles['contact__legal-value']}>3703143102</span>
-							</li>
-							<li className={styles['contact__legal-item']}>
-								<span>Năm thành lập:</span>
-								<span className={styles['contact__legal-value']}>2025</span>
-							</li>
-							<li className={styles['contact__legal-item']}>
-								<span>Kinh nghiệm:</span>
-								<span className={styles['contact__legal-accent']}>25+ năm</span>
-							</li>
-						</ul>
-					</section>
 				</div>
 			</div>
 			<div className={styles['contact__map-wrap']}>
