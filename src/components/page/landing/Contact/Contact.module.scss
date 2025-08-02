@@ -1,322 +1,432 @@
 @use '../../../../app/vars' as *;
 @use 'sass:color';
 
-.contactSection {
-	background: $brand-background-light;
-}
-
-.header {
-	text-align: center;
-	margin-bottom: 4rem;
-}
-
-.headerAccent {
-	display: inline-block;
-	padding: 0.5rem 1rem;
-	background: rgba($brand-accent, 0.1);
-	border-radius: 999px;
-	color: $brand-accent;
-	font-size: 0.95rem;
-	font-weight: $font-weight-medium;
-	margin-bottom: 1rem;
-}
-
-.headerTitle {
-	font-size: 2.5rem;
-	font-weight: $font-weight-bold;
-	color: $neutral-dark;
-	margin-bottom: 1.5rem;
-	font-family: $font-family-title;
-	@media (min-width: $breakpoint-desktop) {
-		font-size: 3rem;
+.contact {
+	&__section {
+		background: $brand-background-light;
+		@media (max-width: $breakpoint-tablet) {
+			padding: 1rem 0.5rem;
+		}
 	}
-}
 
-.headerDesc {
-	font-size: 1.25rem;
-	color: $neutral-medium;
-	max-width: 700px;
-	margin: 0 auto;
-}
-
-.grid {
-	display: grid;
-	gap: 3rem;
-	@media (min-width: $breakpoint-desktop) {
-		grid-template-columns: 1fr 1fr;
+	&__grid {
+		display: grid;
+		gap: 3rem;
+		@media (min-width: $breakpoint-desktop) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media (max-width: $breakpoint-tablet) {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
 	}
-}
 
-.channels {
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-}
-
-.cardContent {
-	padding: 2rem;
-	position: relative;
-	z-index: 1;
-}
-
-.cardHeader {
-	display: flex;
-	align-items: center;
-	margin-bottom: 1.5rem;
-}
-
-.cardIcon {
-	width: 4rem;
-	height: 4rem;
-	padding: 0.75rem;
-	border-radius: $border-radius-xl;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-right: 1rem;
-	background: rgba($brand-accent, 0.075);
-	transition: background 0.3s, transform 0.3s;
-}
-
-.cardIconWrap {
-	position: relative;
-	width: 100%;
-	height: 100%;
-}
-
-.iconAccent {
-	width: 2rem;
-	height: 2rem;
-	color: $brand-accent;
-	z-index: 1;
-}
-
-.cardTitle {
-	font-size: 1.5rem;
-	font-weight: $font-weight-bold;
-	color: $neutral-dark;
-	font-family: $font-family-title;
-}
-
-.cardDesc {
-	color: $neutral-medium;
-	font-family: $font-family-body;
-}
-
-.features {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	margin-bottom: 1.5rem;
-}
-
-.iconAccentSmall {
-	width: 1.25rem;
-	height: 1.25rem;
-	color: $brand-accent;
-	margin-right: 0.75rem;
-	vertical-align: middle;
-}
-
-.zaloLink {
-	background-color: $brand-accent !important;
-	color: $brand-text-light !important;
-}
-
-.facebookLink {
-	background-color: #3b82f6 !important;
-	color: $brand-text-light !important;
-}
-
-.cardIconFacebook {
-	width: 4rem;
-	height: 4rem;
-	border-radius: $border-radius-xl;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-right: 1rem;
-	background: rgba(#3b82f6, 0.1);
-	transition: background 0.3s, transform 0.3s;
-}
-
-.iconFacebook {
-	width: 2rem;
-	height: 2rem;
-	color: #3b82f6;
-	z-index: 1;
-}
-
-.iconFacebookSmall {
-	width: 1.25rem;
-	height: 1.25rem;
-	color: #3b82f6;
-	margin-right: 0.75rem;
-	vertical-align: middle;
-}
-
-.info {
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
-}
-
-.infoCard {
-	background: $white;
-	border-radius: $border-radius-xl;
-	box-shadow: 0 10px 15px rgba($brand-primary, 0.08);
-	padding: 2rem;
-	border: none;
-}
-
-.infoTitle {
-	font-size: 1.5rem;
-	font-weight: $font-weight-bold;
-	color: $neutral-dark;
-	margin-bottom: 1.5rem;
-	font-family: $font-family-title;
-}
-
-.infoList {
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
-}
-
-.infoItem {
-	display: flex;
-	align-items: flex-start;
-	gap: 1rem;
-}
-
-.iconAccentInfo {
-	width: 1.5rem;
-	height: 1.5rem;
-	color: $brand-accent;
-	margin-top: 0.25rem;
-	flex-shrink: 0;
-}
-
-.infoLabel {
-	font-weight: $font-weight-semibold;
-	color: $neutral-dark;
-	margin-bottom: 0.25rem;
-}
-
-.infoValue {
-	color: $neutral-medium;
-}
-
-.infoPhone {
-	color: $brand-accent;
-	font-weight: $font-weight-medium;
-	transition: color 0.2s;
-	&:hover {
-		color: color.adjust($brand-accent, $lightness: -10%);
+	&__channels {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		@media (max-width: $breakpoint-tablet) {
+			gap: 1.25rem;
+		}
 	}
-}
 
-.infoAccent {
-	color: $brand-accent;
-	font-weight: $font-weight-medium;
-}
+	&__card-content {
+		padding: 2rem;
+		position: relative;
+		z-index: 1;
+		@media (max-width: $breakpoint-tablet) {
+			padding: 1.25rem;
+		}
+		@media (max-width: $breakpoint-mobile) {
+			padding: 1rem;
+		}
+	}
 
-.ctaCard {
-	background: $brand-primary;
-	color: $brand-text-light;
-	border-radius: $border-radius-xl;
-	box-shadow: 0 10px 15px rgba($brand-primary, 0.08);
-	padding: 2rem;
-	text-align: center;
-}
+	&__card-header {
+		display: flex;
+		align-items: center;
+		margin-bottom: 1.5rem;
+		@media (max-width: $breakpoint-tablet) {
+			margin-bottom: 1rem;
+		}
+	}
 
-.ctaTitle {
-	font-size: 1.5rem;
-	font-weight: $font-weight-bold;
-	margin-bottom: 1rem;
-}
+	&__card-icon {
+		width: 4rem;
+		height: 4rem;
+		padding: 0.75rem;
+		border-radius: $border-radius-xl;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-right: 1rem;
+		background: rgba($brand-accent, 0.075);
+		transition: background 0.3s, transform 0.3s;
+		@media (max-width: $breakpoint-tablet) {
+			display: none;
+		}
+	}
 
-.ctaDesc {
-	color: rgba($brand-text-light, 0.9);
-	margin-bottom: 1.5rem;
-}
+	&__card-icon-wrap {
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
 
-.ctaActions {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-}
+	&__card-title {
+		font-size: 1.5rem;
+		font-weight: $font-weight-bold;
+		color: $neutral-dark;
+		font-family: $font-family-title;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 1rem;
+		}
+	}
 
-.legalTitle {
-	font-size: 1.25rem;
-	font-weight: $font-weight-bold;
-	color: $neutral-dark;
-	margin-bottom: 1rem;
-}
+	&__card-desc {
+		color: $neutral-medium;
+		font-family: $font-family-body;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 0.875rem;
+		}
+	}
 
-.legalList {
-	display: flex;
-	flex-direction: column;
-	gap: 0.75rem;
-	font-size: 0.95rem;
-	color: $neutral-medium;
-}
+	&__features {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+		list-style: none;
+		padding: 0;
+		@media (max-width: $breakpoint-tablet) {
+			gap: 0.75rem;
+			margin-bottom: 1rem;
+		}
+	}
 
-.legalItem {
-	display: flex;
-	justify-content: space-between;
-}
+	&__features li {
+		display: flex;
+		align-items: center;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 0.95rem;
+		}
+	}
 
-.legalValue {
-	font-weight: $font-weight-medium;
-	color: $neutral-dark;
-}
+	&__card--zalo .contact__feature {
+		width: 1.25rem;
+		height: 1.25rem;
+		color: $brand-accent;
+		margin-right: 0.75rem;
+		vertical-align: middle;
+		@media (max-width: $breakpoint-tablet) {
+			width: 1rem;
+			height: 1rem;
+			margin-right: 0.5rem;
+		}
+	}
 
-.legalAccent {
-	font-weight: $font-weight-medium;
-	color: $brand-accent;
-}
+	&__link--zalo {
+		background-color: $brand-accent !important;
+		color: $brand-text-light !important;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 1rem;
+			padding: 0.75rem 1rem !important;
+		}
+	}
 
-.mapWrap {
-	margin-top: 3rem;
-}
+	&__link--facebook {
+		background-color: #3b82f6 !important;
+		color: $brand-text-light !important;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 1rem;
+			padding: 0.75rem 1rem !important;
+		}
+	}
 
-.mapCard {
-	background: $white;
-	border-radius: $border-radius-xl;
-	box-shadow: 0 10px 15px rgba($brand-primary, 0.08);
-	border: none;
-	overflow: hidden;
-}
+	&__card--facebook .contact__feature {
+		width: 1.25rem;
+		height: 1.25rem;
+		color: #3b82f6;
+		margin-right: 0.75rem;
+		vertical-align: middle;
+		@media (max-width: $breakpoint-tablet) {
+			width: 1rem;
+			height: 1rem;
+			margin-right: 0.5rem;
+		}
+	}
 
-.mapContent {
-	height: 24rem;
-	background: $neutral-light;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
+	&__info {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		@media (max-width: $breakpoint-tablet) {
+			gap: 1rem;
+		}
+	}
 
-.mapInfo {
-	text-align: center;
-	color: $neutral-medium;
-}
+	&__info-card {
+		background: $white;
+		border-radius: $border-radius-xl;
+		box-shadow: 0 10px 15px rgba($brand-primary, 0.08);
+		padding: 2rem;
+		border: none;
+		@media (max-width: $breakpoint-tablet) {
+			padding: 1.25rem;
+		}
+		@media (max-width: $breakpoint-mobile) {
+			padding: 1rem;
+		}
+	}
 
-.mapIcon {
-	width: 3rem;
-	height: 3rem;
-	margin: 0 auto 1rem auto;
-	color: $brand-accent;
-}
+	&__info-title {
+		font-size: 1.5rem;
+		font-weight: $font-weight-bold;
+		color: $neutral-dark;
+		margin-bottom: 1.5rem;
+		font-family: $font-family-title;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 1.15rem;
+			margin-bottom: 1rem;
+		}
+	}
 
-.mapTitle {
-	font-size: 1.1rem;
-	font-weight: $font-weight-semibold;
-	color: $neutral-dark;
-	margin-bottom: 0.5rem;
-}
+	&__info-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		list-style: none;
+		padding: 0;
+		@media (max-width: $breakpoint-tablet) {
+			gap: 1rem;
+		}
+	}
 
-.mapAddress {
-	font-size: 0.95rem;
-	margin-top: 0.5rem;
+	&__info-list li {
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 0.95rem;
+			gap: 0.75rem;
+		}
+	}
+
+	&__info-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+		@media (max-width: $breakpoint-tablet) {
+			gap: 0.75rem;
+		}
+	}
+
+	&__icon-accent-info {
+		width: 1.5rem;
+		height: 1.5rem;
+		color: $brand-accent;
+		margin-top: 0.25rem;
+		flex-shrink: 0;
+		@media (max-width: $breakpoint-tablet) {
+			width: 1.1rem;
+			height: 1.1rem;
+			margin-top: 0.15rem;
+		}
+	}
+
+	&__info-label {
+		font-weight: $font-weight-semibold;
+		color: $neutral-dark;
+		margin-bottom: 0.25rem;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 0.98rem;
+		}
+	}
+
+	&__info-value {
+		color: $neutral-medium;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 0.95rem;
+		}
+	}
+
+	&__info-phone {
+		color: $brand-accent;
+		font-weight: $font-weight-medium;
+		transition: color 0.2s;
+		&:hover {
+			color: color.adjust($brand-accent, $lightness: -10%);
+		}
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 0.98rem;
+		}
+	}
+
+	&__info-accent {
+		color: $brand-accent;
+		font-weight: $font-weight-medium;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 0.98rem;
+		}
+	}
+
+	&__cta-card {
+		background: $brand-primary;
+		color: $brand-text-light;
+		border-radius: $border-radius-xl;
+		box-shadow: 0 10px 15px rgba($brand-primary, 0.08);
+		padding: 2rem;
+		text-align: center;
+		@media (max-width: $breakpoint-tablet) {
+			padding: 1.25rem;
+		}
+		@media (max-width: $breakpoint-mobile) {
+			padding: 1rem;
+		}
+	}
+
+	&__cta-title {
+		font-size: 1.5rem;
+		font-weight: $font-weight-bold;
+		margin-bottom: 1rem;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 1.15rem;
+			margin-bottom: 0.75rem;
+		}
+	}
+
+	&__cta-desc {
+		color: rgba($brand-text-light, 0.9);
+		margin-bottom: 1.5rem;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 0.95rem;
+			margin-bottom: 1rem;
+		}
+	}
+
+	&__cta-actions {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		@media (max-width: $breakpoint-tablet) {
+			gap: 0.75rem;
+		}
+	}
+
+	&__legal-title {
+		font-size: 1.25rem;
+		font-weight: $font-weight-bold;
+		color: $neutral-dark;
+		margin-bottom: 1rem;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 1rem;
+			margin-bottom: 0.75rem;
+		}
+	}
+
+	&__legal-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		font-size: 0.95rem;
+		color: $neutral-medium;
+		list-style: none;
+		padding: 0;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 0.92rem;
+			gap: 0.5rem;
+		}
+	}
+
+	&__legal-list li {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__legal-item {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__legal-value {
+		font-weight: $font-weight-medium;
+		color: $neutral-dark;
+	}
+
+	&__legal-accent {
+		font-weight: $font-weight-medium;
+		color: $brand-accent;
+	}
+
+	&__map-wrap {
+		margin-top: 3rem;
+		@media (max-width: $breakpoint-tablet) {
+			margin-top: 2rem;
+		}
+	}
+
+	&__map-card {
+		background: $white;
+		border-radius: $border-radius-xl;
+		box-shadow: 0 10px 15px rgba($brand-primary, 0.08);
+		border: none;
+		overflow: hidden;
+		@media (max-width: $breakpoint-tablet) {
+			border-radius: $border-radius-lg;
+		}
+	}
+
+	&__map-content {
+		height: 24rem;
+		background: $neutral-light;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@media (max-width: $breakpoint-tablet) {
+			height: 16rem;
+		}
+		@media (max-width: $breakpoint-mobile) {
+			height: 12rem;
+		}
+	}
+
+	&__map-info {
+		text-align: center;
+		color: $neutral-medium;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 0.95rem;
+		}
+	}
+
+	&__map-icon {
+		width: 3rem;
+		height: 3rem;
+		margin: 0 auto 1rem auto;
+		color: $brand-accent;
+		@media (max-width: $breakpoint-tablet) {
+			width: 2rem;
+			height: 2rem;
+			margin-bottom: 0.75rem;
+		}
+	}
+
+	&__map-title {
+		font-size: 1.1rem;
+		font-weight: $font-weight-semibold;
+		color: $neutral-dark;
+		margin-bottom: 0.5rem;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 1rem;
+			margin-bottom: 0.35rem;
+		}
+	}
+
+	&__map-address {
+		font-size: 0.95rem;
+		margin-top: 0.5rem;
+		@media (max-width: $breakpoint-tablet) {
+			font-size: 0.9rem;
+			margin-top: 0.35rem;
+		}
+	}
 }

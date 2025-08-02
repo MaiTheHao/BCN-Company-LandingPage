@@ -13,7 +13,7 @@ type Props = {
 function PageSection({ className, children, subtitle, title, description, id }: Props) {
 	return (
 		<section className={`${styles.pageSection} ${className ?? ''}`} id={id}>
-			<div className={styles.container}>
+			<div className={`${styles.container} container`}>
 				<div className={styles.header}>
 					{subtitle && <div className={`accent-title`}>{subtitle}</div>}
 					{title && <h2 className={styles.title}>{title}</h2>}

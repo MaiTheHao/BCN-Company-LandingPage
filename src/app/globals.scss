@@ -14,8 +14,12 @@
 	width: 100%;
 	max-width: $max-screen-width;
 	height: 100%;
-	padding: 0 1em;
+	padding: 0 0.5rem;
 	margin: 0 auto;
+
+	@media screen and (min-width: $breakpoint-tablet) {
+		padding: 0 1rem;
+	}
 }
 
 .accent-title {
