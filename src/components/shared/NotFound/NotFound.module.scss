@@ -1,0 +1,40 @@
+@use '../../../app/vars' as *;
+
+.notFound {
+	position: absolute;
+	inset: 0;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1ch;
+}
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 4em;
+	gap: 0.5ch;
+
+	&__number {
+		font-size: 1em;
+		font-weight: $font-weight-bold;
+		color: $brand-accent;
+	}
+
+	&__image {
+		position: relative;
+		height: 1em;
+		width: 1em;
+	}
+}
+
+.message {
+	max-width: 40ch;
+	font-size: 1em;
+	text-align: center;
+	color: $neutral-medium;
+	font-weight: $font-weight-medium;
+	font-family: $font-family-title;
+}

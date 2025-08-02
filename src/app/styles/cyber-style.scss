@@ -8,7 +8,7 @@
 		linear-gradient(90deg, rgba($brand-primary, 0.03) 1px, transparent 1px);
 	background-size: 20px 20px;
 	transition: opacity 0.4s ease;
-	opacity: 0;
+	opacity: 1;
 }
 
 .cyber-icon {
@@ -40,12 +40,14 @@
 	border: 1px solid rgba($neutral-light, 0.3);
 	border-radius: $border-radius-xl;
 	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	-webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px);
 	box-shadow: 0 10px 15px rgba($brand-primary, 0.1);
 	overflow: hidden;
 
 	> .cyber-grid {
 		border-radius: $border-radius-xl;
+		opacity: 0;
 	}
 
 	&::before {
@@ -127,6 +129,12 @@
 	padding-left: 20px;
 	color: $neutral-medium;
 	transition: color 0.3s ease;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 
 	&::before {
 		content: '▶';
@@ -152,8 +160,8 @@
 	font-family: $font-family-title, sans-serif;
 	font-weight: $font-weight-semibold;
 	background: linear-gradient(135deg, $brand-primary, color.adjust($brand-primary, $hue: 20, $lightness: 10%));
-	background-clip: text;
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 	position: relative;
 
@@ -194,4 +202,34 @@
 
 .cyber-testimonial:hover {
 	box-shadow: 0px 0 20px rgba($brand-accent, 0.1);
+}
+
+.cyber-link {
+	display: inline-block;
+	font-family: $font-family-title, sans-serif;
+	font-weight: $font-weight-semibold;
+	color: $brand-accent;
+	text-decoration: none;
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -2px;
+		width: 100%;
+		height: 1px;
+		background: $brand-accent;
+		opacity: 0.6;
+		transition: opacity 0.3s, height 0.3s;
+	}
+
+	&:hover,
+	&:focus {
+		color: $brand-accent;
+		&::after {
+			opacity: 1;
+			height: 2px;
+		}
+	}
 }

@@ -3,6 +3,7 @@
 .servicesGrid {
 	display: grid;
 	grid-template-columns: 1fr;
+
 	gap: 2rem;
 	margin-bottom: 2.5rem;
 
@@ -20,6 +21,8 @@
 
 .cardContent {
 	position: relative;
+	height: max-content;
+	min-height: 100%;
 	z-index: 2;
 	display: flex;
 	flex-direction: column;
@@ -32,15 +35,25 @@
 }
 
 .cardTitle {
-	font-size: 1.5rem;
-	margin-bottom: 0.75rem;
+	font-size: 1.25rem;
+	margin-bottom: 1ch;
 }
 
 .cardDescription {
 	color: $neutral-medium;
 	font-size: 1rem;
-	line-height: 1.6;
-	margin-bottom: 1.25rem;
+	margin-bottom: 1.5ch;
+
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 3;
+	line-clamp: 3;
+	overflow: hidden;
+
+	@media (min-width: $breakpoint-tablet) {
+		min-height: 4.5rem;
+	}
 }
 
 .features {
@@ -49,11 +62,4 @@
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
-}
-
-.ctaWrap {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	margin-top: 1.5rem;
 }

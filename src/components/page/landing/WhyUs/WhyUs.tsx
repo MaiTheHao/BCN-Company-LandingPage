@@ -13,16 +13,16 @@ const features = [
 	},
 	{
 		icon: Zap,
-		title: 'Thiết Bị Hiện Đại',
-		description: 'Trang bị máy móc, thiết bị tiên tiến nhất để đảm bảo chất lượng sản phẩm.',
+		title: 'Thiết Bị Đạt Chuẩn',
+		description: 'Trang bị máy móc, thiết bị đạt chuẩn, đảm bảo chất lượng & độ chính xác cho mọi sản phẩm.',
 		stat: '100%',
-		statLabel: 'Hiện Đại',
+		statLabel: 'Đạt Chuẩn',
 	},
 	{
 		icon: Target,
 		title: 'Độ Chính Xác Cao',
-		description: 'Cam kết độ chính xác dưới 0.01mm cho mọi sản phẩm gia công.',
-		stat: '<0.01mm',
+		description: 'Cam kết mang đến độ chính xác cao cho từng chi tiết gia công, đáp ứng yêu cầu kỹ thuật.',
+		stat: 'Đạt Chuẩn',
 		statLabel: 'Độ Chính Xác',
 	},
 	{
@@ -35,16 +35,16 @@ const features = [
 	{
 		icon: Shield,
 		title: 'Chất Lượng Ổn Định',
-		description: 'Hệ thống kiểm soát chất lượng nghiêm ngặt đảm bảo sản phẩm luôn đạt chuẩn.',
-		stat: 'ISO',
-		statLabel: 'Chuẩn',
+		description: 'Chất lượng sản phẩm được chúng tôi đảm bảo ổn định qua từng lô hàng.',
+		stat: 'Tin Cậy',
+		statLabel: 'Chất Lượng',
 	},
 	{
 		icon: Users,
 		title: 'Đội Ngũ Chuyên Nghiệp',
 		description: 'Thợ lành nghề với hơn 10 năm kinh nghiệm, tận tâm và có trách nhiệm.',
 		stat: '10+',
-		statLabel: 'Năm KN',
+		statLabel: 'Năm Kinh Nghiệm',
 	},
 	{
 		icon: CheckCircle,
@@ -67,8 +67,8 @@ export default function WhyUs() {
 		<PageSection
 			id='about'
 			subtitle='Tại Sao Chọn Chúng Tôi'
-			title='Cam Kết Chất Lượng Hàng Đầu'
-			description='Với hơn 25 năm kinh nghiệm và đội ngũ chuyên nghiệp, chúng tôi tự hào mang đến những giải pháp cơ khí tối ưu nhất cho khách hàng.'
+			title='Cam Kết Chất Lượng & Dịch Vụ Tận Tâm'
+			description='Với hơn 25 năm kinh nghiệm và đội ngũ lành nghề, chúng tôi tự hào mang đến những giải pháp cơ khí tối ưu nhất cho khách hàng.'
 			className={styles.whyUs}
 		>
 			<div className={styles.featuresGrid}>
@@ -97,13 +97,13 @@ export default function WhyUs() {
 					<div className={styles.companyDesc}>{COMPANY_INFO.description}</div>
 					<div className={styles.companyDetailsGrid}>
 						<div className={styles.companyDetail}>
-							<CheckCircle className={styles.detailIcon} /> Mã số thuế: {COMPANY_INFO.taxId}
+							<CheckCircle className={styles.detailIcon} /> Hơn 25 năm kinh nghiệm
 						</div>
 						<div className={styles.companyDetail}>
-							<CheckCircle className={styles.detailIcon} /> Giờ làm việc: {COMPANY_INFO.workingTime.hours}
+							<CheckCircle className={styles.detailIcon} /> Đội ngũ lành nghề
 						</div>
 						<div className={styles.companyDetail}>
-							<CheckCircle className={styles.detailIcon} /> {COMPANY_INFO.workingTime.weekdays}
+							<CheckCircle className={styles.detailIcon} /> Chất lượng ổn định
 						</div>
 						<div className={styles.companyDetail}>
 							<CheckCircle className={styles.detailIcon} /> Tư vấn 24/7
@@ -112,11 +112,11 @@ export default function WhyUs() {
 				</div>
 				<div className={styles.companyStatsCard}>
 					<div className={styles.companyStat}>
-						<span>1000+</span>
+						<span>900+</span>
 						<div>Dự Án Hoàn Thành</div>
 					</div>
 					<div className={styles.companyStat}>
-						<span>500+</span>
+						<span>200+</span>
 						<div>Khách Hàng Tin Tưởng</div>
 					</div>
 				</div>

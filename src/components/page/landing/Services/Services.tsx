@@ -15,15 +15,16 @@ const services = [
 	},
 	{
 		icon: Zap,
-		title: 'Hàn Chuyên Nghiệp',
-		description: 'Dịch vụ hàn đa dạng với công nghệ hiện đại, đảm bảo độ bền và thẩm mỹ cao cho sản phẩm.',
-		features: ['Hàn TIG', 'Hàn MIG', 'Hàn điện tử'],
+		title: 'Hàn Chất Lượng',
+		description: 'Dịch vụ hàn đa dạng với công nghệ tiêu chuẩn, đảm bảo độ bền và thẩm mỹ cao cho sản phẩm.',
+		features: ['Hàn TIG', 'Hàn MAG', 'Hàn que'],
 	},
 	{
 		icon: Settings,
-		title: 'Phay Đa Trục',
-		description: 'Gia công phay với máy CNC đa trục, tạo ra các chi tiết phức tạp với độ chính xác tuyệt đối.',
-		features: ['Phay CNC 3-5 trục', 'Phay thường', 'Gia công khuôn mẫu'],
+		title: 'Tiện & Gia Công Cắt Dây',
+		description:
+			'Chúng tôi chuyên gia công tiện, bào và cắt dây, tạo ra các chi tiết với độ chính xác cao và khả năng đáp ứng đa dạng yêu cầu sản xuất.',
+		features: ['Tiện', 'Gia công bào', 'Cắt dây EDM'],
 	},
 	{
 		icon: Cpu,
@@ -33,15 +34,17 @@ const services = [
 	},
 	{
 		icon: Wrench,
-		title: 'Thiết Bị Công Nghiệp',
-		description: 'Cung cấp sỉ các thiết bị công nghiệp chất lượng cao: motor, bơm, biến tần và phụ kiện.',
-		features: ['Motor công nghiệp', 'Bơm các loại', 'Biến tần điều khiển'],
+		title: 'Bảo Trì Thiết Bị Công Nghiệp',
+		description:
+			'Chúng tôi chuyên sửa chữa và gia công máy móc, thiết bị công nghiệp tận nơi, đảm bảo khôi phục hoạt động nhanh chóng và hiệu quả.',
+		features: ['Sửa chữa máy công nghiệp', 'Gia công chi tiết tại chỗ', 'Bảo trì & nâng cấp thiết bị'],
 	},
 	{
 		icon: Package,
-		title: 'Tủ Điện & Phụ Kiện',
-		description: 'Phân phối tủ điện và phụ kiện điều khiển chính hãng, đảm bảo chất lượng và độ tin cậy.',
-		features: ['Tủ điện công nghiệp', 'Phụ kiện điều khiển', 'Hệ thống tự động'],
+		title: 'Ốc Tán, Phụ Kiện & Vật Tư',
+		description:
+			'Cung cấp đa dạng ốc tán, phụ kiện và vật tư công nghiệp, đảm bảo chất lượng và tính ứng dụng cao.',
+		features: ['Ốc tán các loại', 'Phụ kiện liên kết', 'Vật tư tổng hợp'],
 	},
 ];
 

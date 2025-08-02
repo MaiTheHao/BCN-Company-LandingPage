@@ -67,7 +67,7 @@ export default function Projects() {
 						</div>
 
 						<div className={styles.projectContent}>
-							<h3 className='cyber-title'>{project.title}</h3>
+							<h3 className={`cyber-title ${styles.projectTitle}`}>{project.title}</h3>
 							<p className={styles.projectDesc}>{project.description}</p>
 
 							{/* Project Info */}

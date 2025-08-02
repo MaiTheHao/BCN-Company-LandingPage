@@ -11,19 +11,14 @@
 	padding: 0.5rem 1rem;
 	border-radius: $border-radius-base;
 	transition: background-color 0.3s, color 0.3s, border 0.3s;
+	text-wrap: nowrap;
+	font-size: 0.875rem;
 
 	svg,
 	img {
 		position: relative !important;
 		width: 1.25em !important;
 		height: 1.25em !important;
-	}
-
-	&.small {
-		font-size: 0.875rem;
-	}
-	&.base {
-		font-size: 1rem;
 	}
 
 	&.primary {
@@ -54,7 +49,7 @@
 		color: $brand-accent;
 		text-transform: uppercase;
 		overflow: hidden;
-		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
 		&::before {
 			content: '';

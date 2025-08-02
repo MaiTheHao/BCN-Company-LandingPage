@@ -38,7 +38,7 @@ function HeroSection({}: Props) {
 							</div>
 							<div className={styles.featureItem}>
 								<CheckCircle className={styles.featureIcon} />
-								<span className={styles.featureText}>Độ chính xác {'<'}0.01mm</span>
+								<span className={styles.featureText}>Thành phẩm đạt chuẩn</span>
 							</div>
 							<div className={styles.featureItem}>
 								<CheckCircle className={styles.featureIcon} />
