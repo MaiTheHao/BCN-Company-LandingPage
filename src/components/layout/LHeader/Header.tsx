@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import styles from './Header.module.scss';
 import CTAs from './components/CTAs';
 import Logo from './components/Logo';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { INavItem } from '@/interfaces/nav-item.interface';
 import Link from 'next/link';
 import COMPANY_INFO from '@/data/company-info';
@@ -23,6 +23,8 @@ const NavItems: INavItem[] = [
 
 function Header({}: Props) {
 	const [isHBGMenuOpen, setIsHBGMenuOpen] = useState(false);
+
+	const toggleBtnRef = useRef<HTMLButtonElement | null>(null);
 	const toggleHBGMenu = () => {
 		setIsHBGMenuOpen((prev) => !prev);
 	};
@@ -33,6 +35,7 @@ function Header({}: Props) {
 
 	const hbgMenuRef = useClickOutside<HTMLDivElement>({
 		onClickOutside: handleClickOutside,
+		toggleButtonRef: toggleBtnRef,
 	});
 
 	return (
@@ -50,6 +53,7 @@ function Header({}: Props) {
 					onClick={toggleHBGMenu}
 					aria-label='Mở menu'
 					className={`${styles.hamburgerMenuButton} ${isHBGMenuOpen ? styles.active : ''}`}
+					ref={toggleBtnRef}
 				>
 					<span></span>
 					<span></span>
